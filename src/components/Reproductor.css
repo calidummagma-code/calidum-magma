@@ -1,0 +1,67 @@
+/* ===========================
+   REPRODUCTOR
+=========================== */
+
+.reproductor{
+
+    width:350px;
+
+    margin:0;
+
+    padding:5px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#000;
+
+    overflow:hidden;
+
+}
+
+
+/* ===========================
+   AUDIO
+=========================== */
+
+.reproductor audio{
+
+    width:100%;
+
+    height:32px;
+
+    display:block;
+
+}
+
+
+/* ===========================
+   CHROME / EDGE
+=========================== */
+
+/* Oculta la opción Descargar */
+
+audio::-webkit-media-controls-download-button{
+
+    display:none;
+
+}
+
+/* Oculta el menú de opciones */
+
+audio::-webkit-media-controls-overflow-button{
+
+    display:none;
+
+}
+
+/* Evita que aparezca el botón de descarga en algunos navegadores */
+
+audio::-webkit-media-controls-enclosure{
+
+    overflow:hidden;
+
+}

@@ -1,0 +1,227 @@
+/* ==========================================
+   DISCOGRAFÍA
+========================================== */
+
+.discografia{
+    min-height:100vh;
+    padding:70px clamp(20px,8vw,120px) 100px;
+    background:linear-gradient(#050505,#000);
+    text-align:center;
+}
+
+/* ==========================================
+   CABECERA
+========================================== */
+
+.discografiaHeader{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    width:90%;
+    margin:0 auto 10px;
+}
+
+.tituloBloque{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.sectionTitle{
+    font-size:clamp(36px,5vw,60px);
+    font-weight:900;
+    letter-spacing:8px;
+    text-transform:uppercase;
+    color:#fff;
+    margin:0;
+}
+
+.sectionSubtitle{
+    font-size:clamp(15px,2vw,20px);
+    color:#bfbfbf;
+    margin-top:10px;
+    margin-bottom:25px;
+}
+
+/* ==========================================
+   REPRODUCTOR
+========================================== */
+
+.playerSuperior{
+    width:280px;
+}
+
+.playerSuperior .reproductor{
+    width:320px;
+    margin:0;
+    padding:5px 10px;
+}
+
+/* ==========================================
+   GRID
+========================================== */
+
+.discografiaGrid{
+    display:flex;
+    justify-content:flex-start;
+    align-items:flex-start;
+    gap:40px;
+    width:100%;
+    margin-top:-40px;
+    padding-left:260px;
+}
+
+/* ==========================================
+   TARJETAS
+========================================== */
+
+.discoCard{
+    width:225px;
+    transition:.35s;
+}
+
+.discoCard:hover{
+    transform:translateY(-10px);
+    box-shadow:
+        0 0 25px rgba(128,0,32,.45),
+        0 15px 40px rgba(0,0,0,.65);
+}
+
+/* ==========================================
+   PORTADA
+========================================== */
+
+.discoCover{
+    position:relative;
+    overflow:hidden;
+}
+
+.discoCover img{
+    width:100%;
+    display:block;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.discoCard:hover img{
+    transform:scale(1.05);
+    filter:grayscale(100%) contrast(1.2);
+}
+
+/* ==========================================
+   TÍTULO
+========================================== */
+
+.tituloNormal{
+    margin-top:15px;
+    color:#800020;
+    font-size:22px;
+    font-weight:900;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+/* ==========================================
+   OVERLAY
+========================================== */
+
+.discoOverlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.25);
+    backdrop-filter:blur(2px);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+
+    color:#fff;
+
+    opacity:0;
+    transition:.35s;
+}
+
+.discoCard:hover .discoOverlay{
+    opacity:1;
+}
+
+.discoOverlay h3{
+    color:#fff;
+    font-size:18px;
+    letter-spacing:2px;
+    margin-bottom:15px;
+    text-align:center;
+}
+
+.discoOverlay p{
+    color:#ddd;
+    margin:4px 0;
+    font-size:15px;
+}
+
+/* ==========================================
+   ENLACES
+========================================== */
+
+.linksMusica{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:20px;
+}
+
+.linksMusica a{
+    color:#fff;
+    border:1px solid #fff;
+    padding:7px 12px;
+    text-decoration:none;
+    font-size:12px;
+    text-transform:uppercase;
+    transition:.3s;
+}
+
+.linksMusica a:hover{
+    background:#fff;
+    color:#000;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width:900px){
+
+    .discografiaHeader{
+        flex-direction:column;
+        align-items:center;
+        gap:20px;
+    }
+
+    .tituloBloque{
+        align-items:center;
+    }
+
+    .playerSuperior,
+    .playerSuperior .reproductor{
+        width:280px;
+    }
+
+    .discografiaGrid{
+        flex-direction:column;
+        align-items:center;
+        padding-left:0;
+        margin-top:0;
+        gap:40px;
+    }
+
+    .discoCard{
+        width:85%;
+        max-width:320px;
+    }
+
+}

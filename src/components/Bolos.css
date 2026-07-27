@@ -1,0 +1,221 @@
+/* ==========================================
+   BOLOS
+========================================== */
+
+.bolos{
+
+    min-height:100vh;
+
+    padding:20px 40px 120px;
+
+    background:
+        linear-gradient(
+            #050505,
+            #000
+        );
+
+    text-align:center;
+
+}
+/* ==========================================
+   GRID
+========================================== */
+
+.conciertosGrid{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+    flex-wrap:wrap;
+
+    gap:60px;
+
+    margin-top:60px;
+
+}
+
+
+/* ==========================================
+   ENTRADA CARD
+========================================== */
+
+.entradaCard{
+
+    position:relative;
+
+    width:550px;
+
+  
+}
+
+
+.entradaCard:hover{
+
+    transform:
+        translateY(-10px)
+        rotate(-2deg)
+        scale(1.03);
+
+}
+
+
+
+/* ==========================================
+   IMAGEN
+========================================== */
+
+.entradaImg{
+
+    width:100%;
+
+    display:block;
+
+    transition:
+        filter .4s ease,
+        transform .4s ease;
+
+}
+
+
+/* FOTO BLANCO Y NEGRO AL PASAR */
+
+.entradaCard:hover .entradaImg{
+
+    filter:grayscale(100%) contrast(120%);
+
+}
+
+
+
+/* ==========================================
+   INFORMACIÓN
+========================================== */
+
+.entradaInfo{
+
+    position:absolute;
+
+    top:52%;
+
+    left:0;
+
+    width:65%;
+
+    text-align:center;
+
+    color:#222;
+
+    transition:color .4s ease;
+
+}
+
+
+.entradaInfo h3{
+
+    font-size:24px;
+
+    font-weight:900;
+
+    margin-bottom:8px;
+
+    letter-spacing:2px;
+
+    transition:color .4s ease;
+
+}
+
+
+
+.entradaInfo p{
+
+    margin:2px 0;
+
+    line-height:1.1;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    transition:color .4s ease;
+
+}
+
+
+
+/* TEXTO BLANCO AL PASAR */
+
+.entradaCard:hover .entradaInfo h3,
+.entradaCard:hover .entradaInfo p{
+
+    color:white;
+
+    text-shadow:
+        2px 2px 5px black;
+
+}
+
+
+
+/* ==========================================
+   CONCIERTOS PASADOS
+========================================== */
+
+.pasada .entradaImg{
+
+    filter:grayscale(100%);
+
+    opacity:.75;
+
+}
+
+
+
+/* ==========================================
+   TÍTULO PASADOS
+========================================== */
+
+.tituloPasados{
+
+    margin-top:120px;
+
+    margin-bottom:40px;
+
+    font-size:40px;
+
+    color:white;
+
+    letter-spacing:4px;
+
+}
+
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:900px){
+
+    .conciertosGrid{
+
+        flex-direction:column;
+
+        align-items:center;
+
+        gap:40px;
+
+    }
+
+
+    .entradaCard{
+
+        width:90%;
+
+        max-width:340px;
+
+    }
+
+}
