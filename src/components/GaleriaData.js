@@ -21,49 +21,29 @@ export const elementos = [
     src: foto2,
     titulo: "Foto 2",
   },
-  {
-    tipo: "video",
-    src: videoAMCostat,
-    titulo: "A M Costat",
-  },
+  
   {
     tipo: "foto",
     src: foto3,
     titulo: "Foto 3",
   },
-  {
-    tipo: "video",
-    src: videoPopRock,
-    titulo: "Pop & Rock 06-09-2025",
-  },
+ 
   {
     tipo: "foto",
     src: foto4,
     titulo: "Foto 4",
   },
-  {
-    tipo: "video",
-    src: videoOrfidal,
-    titulo: "L'Auca de l'Orfidal",
-  },
+  
   {
     tipo: "foto",
     src: foto5,
     titulo: "Foto 5",
   },
-  {
-    tipo: "video",
-    src: videoSansaRock,
-    titulo: "Hauries de ser fort",
-  },
+  
   {
     tipo: "foto",
     src: foto6,
     titulo: "Foto 6",
   },
-  {
-    tipo: "video",
-    src: videoRocanrola,
-    titulo: "Rocanrola Pop & Rock Cambrils 2025",
-  },
+  
 ];
