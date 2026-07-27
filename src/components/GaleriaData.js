@@ -1,9 +1,9 @@
-import foto1 from "../assets/galeria/foto1.jpg";
-import foto2 from "../assets/galeria/foto2.jpg";
-import foto3 from "../assets/galeria/foto3.jpg";
-import foto4 from "../assets/galeria/foto4.jpg";
-import foto5 from "../assets/galeria/foto5.jpg";
-import foto6 from "../assets/galeria/foto6.jpg";
+import foto1 from "../assets/galeria/FOTO1.jpg";
+import foto2 from "../assets/galeria/FOTO2.jpg";
+import foto3 from "../assets/galeria/FOTO3.jpg";
+import foto4 from "../assets/galeria/FOTO4.jpg";
+import foto5 from "../assets/galeria/FOTO5.jpg";
+import foto6 from "../assets/galeria/FOTO6.jpg";
 
 
 import videoSansaRock from "../assets/videos/hauries-ser-fort.mp4";
