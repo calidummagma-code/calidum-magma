@@ -5,11 +5,9 @@ import foto4 from "../assets/galeria/foto4.jpg";
 import foto5 from "../assets/galeria/foto5.jpg";
 import foto6 from "../assets/galeria/foto6.jpg";
 
-import videoAMCostat from "../assets/videos/video-A-M-Costat.mp4";
-import videoPopRock from "../assets/videos/pop-rock-2025.mp4";
-import videoOrfidal from "../assets/videos/lauca-orfidal.mp4";
+
 import videoSansaRock from "../assets/videos/hauries-ser-fort.mp4";
-import videoRocanrola from "../assets/videos/rocanrola-cambrils.mp4";
+
 
 
 export const elementos = [
