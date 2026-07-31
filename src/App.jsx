@@ -1,7 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 
-import SplashScreen from "./components/SplashScreen";
-
 import Home from "./pages/Home";
 
 import Discografia from "./components/Discografia";
@@ -9,26 +7,22 @@ import Bolos from "./components/Bolos";
 import Galeria from "./components/Galeria";
 import Contacto from "./components/Contacto";
 
-
-export default function App(){
+export default function App() {
 
     return (
 
         <Routes>
 
-            {/* PANTALLA INICIAL */}
+            {/* PÁGINA PRINCIPAL */}
             <Route
                 path="/"
-                element={<SplashScreen />}
+                element={<Home />}
             />
 
-
-            {/* PAGINA PRINCIPAL */}
             <Route
                 path="/home"
                 element={<Home />}
             />
-
 
             {/* SECCIONES */}
             <Route
@@ -36,31 +30,26 @@ export default function App(){
                 element={<Discografia />}
             />
 
-
             <Route
                 path="/bolos"
                 element={<Bolos />}
             />
-
 
             <Route
                 path="/galeria"
                 element={<Galeria />}
             />
 
-
             <Route
                 path="/contacto"
                 element={<Contacto />}
             />
-
 
             {/* SI LA RUTA NO EXISTE */}
             <Route
                 path="*"
                 element={<Home />}
             />
-
 
         </Routes>
 

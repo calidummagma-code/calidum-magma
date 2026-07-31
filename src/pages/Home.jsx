@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 import fotoBanda from "../assets/home-bg.jpg";
 import logo from "../assets/logo-calidum.png";
-import botigaConstruccion from "../assets/botiga-construccion.png";
+
 import miembro1 from "../assets/miembro1.jpg";
 import miembro2 from "../assets/miembro2.jpg";
 import miembro3 from "../assets/miembro3.jpg";
@@ -138,8 +138,8 @@ backgroundImage:`url(${fotoBanda})`
       <button onClick={()=>scrollToSection("discografia")}>DISCOGRAFIA</button>
       <button onClick={()=>scrollToSection("conciertos")}>BOLOS</button>
       <button onClick={()=>scrollToSection("galeria")}>GALERIA</button>
-      <button onClick={()=>scrollToSection("merch")}>BOTIGA</button>
-      <button onClick={()=>scrollToSection("contacto")}>CONTACTE</button>
+     
+      <button onClick={()=>scrollToSection("contacte")}>CONTACTE</button>
 
     </nav>
 
@@ -235,14 +235,6 @@ LA BANDA
 </h2>
 
 
-
-
-
-<p className="sectionSubtitle">
-
-CONEIX ALS MAGMA
-
-</p>
 
 
 
@@ -432,22 +424,6 @@ CONEIX ALS MAGMA
 
 
 
-<section
-  id="merch"
-  className="placeholder botiga"
->
-
-  <h2>
-    BOTIGA
-  </h2>
-
-  <img
-    src={botigaConstruccion}
-    alt="Botiga en construcció"
-    className="botigaConstruccion"
-  />
-
-</section>
 
 
 

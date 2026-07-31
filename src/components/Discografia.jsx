@@ -127,32 +127,32 @@ function Discografia() {
 
 
                 <a
-                  href="#"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  YouTube
-                </a>
+  href="https://music.youtube.com/playlist?list=OLAK5uy_ma65BQai-_cMOuJR3fND4ykP10W2dU31k&si=_g4iFVcyW27xhDBe"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  YouTube Music
+</a>
 
 
 
                 <a
-                  href="#"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Spotify
-                </a>
+  href="https://open.spotify.com/intl-es/album/2knxavmN3dzgaYhpRZQBuO?si=e4705b0e8a6c42f8"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Spotify
+</a>
 
 
 
                 <a
-                  href="#"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Apple Music
-                </a>
+  href="https://music.apple.com/es/album/calidum-magma-directe/6795351637"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Apple Music
+</a>
 
 
 

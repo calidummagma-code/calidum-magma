@@ -1,92 +1,67 @@
 import "./Contacto.css";
 
-import contacteBg from "../assets/contacte.png";
-
-
 export default function Contacto() {
 
-  return (
+    return (
 
-    <section
-      id="contacto"
-      className="contacto"
-    >
+        <section
+            id="contacte"
+            className="contacto"
+        >
 
+            <h2 className="sectionTitle">
+                CONTACTE
+            </h2>
 
-      <h2 className="tituloContacto">
-        CONTACTE
-      </h2>
+            <div className="contactoContenido">
 
+                <div className="contactoFormulario">
 
+                    <form className="formularioContacto">
 
-      <div className="contactoContenido">
+                        <div className="columnaIzquierda">
 
+                            <input
+                                type="text"
+                                name="nom"
+                                placeholder="Nom"
+                            />
 
-        {/* FORMULARIO IZQUIERDA */}
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="Correu electrònic"
+                            />
 
-        <div className="contactoDerecha">
+                            <input
+                                type="text"
+                                name="assumpte"
+                                placeholder="Assumpte"
+                            />
 
+                        </div>
 
-          <form>
+                        <div className="columnaDerecha">
 
+                            <textarea
+                                name="missatge"
+                                placeholder="Escriu el teu missatge..."
+                            ></textarea>
 
-            <input
-              type="text"
-              placeholder="Nom"
-            />
+                            <button type="submit">
+                                ENVIAR
+                            </button>
 
+                        </div>
 
-            <input
-              type="email"
-              placeholder="Correu electrònic"
-            />
+                    </form>
 
+                </div>
 
-            <input
-              type="text"
-              placeholder="Assumpte"
-            />
+            </div>
 
+        </section>
 
-            <textarea
-              rows="7"
-              placeholder="Escriu el teu missatge..."
-            ></textarea>
-
-
-            <button type="submit">
-              ENVIAR
-            </button>
-
-
-          </form>
-
-
-        </div>
-
-
-
-        {/* IMAGEN DERECHA */}
-
-        <div className="contactoIzquierda">
-
-
-          <img
-            src={contacteBg}
-            alt="Contacte"
-            className="contactoImagen"
-          />
-
-
-        </div>
-
-
-
-      </div>
-
-
-    </section>
-
-  );
+    );
 
 }

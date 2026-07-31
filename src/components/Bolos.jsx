@@ -1,3 +1,5 @@
+import { useRef, useState, useEffect } from "react";
+
 import conciertos from "../data/conciertos";
 import entradaConcierto from "../assets/entrada-concierto.png";
 
@@ -5,15 +7,41 @@ import "./Bolos.css";
 
 export default function Bolos() {
 
-    const hoy = new Date();
+    const carruselRef = useRef(null);
 
+    const [entradaSeleccionada, setEntradaSeleccionada] = useState(null);
+
+    const hoy = new Date();
     hoy.setHours(0, 0, 0, 0);
+
+    const moverIzquierda = () => {
+
+        carruselRef.current?.scrollBy({
+
+            left: -320,
+
+            behavior: "smooth"
+
+        });
+
+    };
+
+    const moverDerecha = () => {
+
+        carruselRef.current?.scrollBy({
+
+            left: 320,
+
+            behavior: "smooth"
+
+        });
+
+    };
 
     const proximos = conciertos
         .filter((concierto) => {
 
             const fecha = new Date(concierto.fecha);
-
             fecha.setHours(0, 0, 0, 0);
 
             return fecha >= hoy;
@@ -25,13 +53,42 @@ export default function Bolos() {
         .filter((concierto) => {
 
             const fecha = new Date(concierto.fecha);
-
             fecha.setHours(0, 0, 0, 0);
 
             return fecha < hoy;
 
         })
         .sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
+
+    useEffect(() => {
+
+        const timer = setTimeout(() => {
+
+            if (!carruselRef.current || proximos.length === 0) return;
+
+            const carrusel = carruselRef.current;
+            const primer = carrusel.children[0];
+
+            if (!primer) return;
+
+            const scroll =
+                primer.offsetLeft -
+                (carrusel.clientWidth / 2) +
+                (primer.clientWidth / 2);
+
+            carrusel.scrollTo({
+
+                left: scroll,
+
+                behavior: "auto"
+
+            });
+
+        }, 100);
+
+        return () => clearTimeout(timer);
+
+    }, [proximos]);
 
     return (
 
@@ -41,101 +98,178 @@ export default function Bolos() {
         >
 
             <h2 className="sectionTitle">
+
                 BOLOS
+
             </h2>
 
             <p className="sectionSubtitle">
+
                 On ens pots veure
+
             </p>
 
-            {/* ===========================
-                PRÓXIMS CONCERTS
-            =========================== */}
+            <div className="carruselBolos">
 
-            <div className="conciertosGrid">
+                <div
+                    className="flecha izquierda"
+                    onClick={moverIzquierda}
+                >
+                    ❮
+                </div>
 
-                {proximos.map((concierto) => (
+                <div
+                    className="conciertosGrid"
+                    ref={carruselRef}
+                >
 
-                    <article
-                        key={concierto.id}
-                        className="entradaCard"
-                    >
+                    {proximos.map((concierto) => (
 
-                        <img
-                            src={entradaConcierto}
-                            alt={concierto.ciudad}
-                            className="entradaImg"
-                        />
+                        <article
+                            key={concierto.id}
+                            className="entradaCard"
+                            onClick={() => setEntradaSeleccionada(concierto)}
+                        >
 
-                        <div className="entradaInfo">
+                            <img
+                                src={entradaConcierto}
+                                alt={concierto.ciudad}
+                                className="entradaImg"
+                            />
 
-                            <h3>{concierto.ciudad}</h3>
+                            <div className="entradaInfo">
 
-                            <p>{concierto.fecha}</p>
+                                <h3>{concierto.ciudad}</h3>
 
-                            <p>{concierto.sala}</p>
+                                <p>{concierto.fecha}</p>
 
-                            <p>{concierto.hora}</p>
+                                <p>{concierto.sala}</p>
 
-                            <p>Entrada: {concierto.precio}</p>
+                                <p>{concierto.hora}</p>
 
-                        </div>
+                                <p>Entrada: {concierto.precio}</p>
 
-                    </article>
+                            </div>
 
-                ))}
+                        </article>
+
+                    ))}
+
+                    {pasados.map((concierto) => (
+
+                        <article
+                            key={concierto.id}
+                            className="entradaCard pasada"
+                            onClick={() => setEntradaSeleccionada(concierto)}
+                        >
+
+                            <img
+                                src={entradaConcierto}
+                                alt={concierto.ciudad}
+                                className="entradaImg"
+                            />
+
+                            <div className="entradaInfo">
+
+                                <h3>{concierto.ciudad}</h3>
+
+                                <p>{concierto.fecha}</p>
+
+                                <p>{concierto.sala}</p>
+
+                                <p>{concierto.hora}</p>
+
+                                <p>Entrada: {concierto.precio}</p>
+
+                            </div>
+
+                            <div className="selloFinalizado">
+
+                                CONCERT REALITZAT
+
+                            </div>
+
+                        </article>
+
+                    ))}
+
+                </div>
+
+                <div
+                    className="flecha derecha"
+                    onClick={moverDerecha}
+                >
+                    ❯
+                </div>
 
             </div>
 
-            {/* ===========================
-                CONCERTS REALITZATS
-            =========================== */}
+                        {entradaSeleccionada && (
 
-            {pasados.length > 0 && (
+                <div
+                    className="visorEntrada"
+                    onClick={() => setEntradaSeleccionada(null)}
+                >
 
-                <>
+                    <div
+                        className="entradaGrande"
+                        onClick={(e) => e.stopPropagation()}
+                    >
 
-                    <h2 className="tituloPasados">
+                        <button
+                            className="cerrarVisor"
+                            onClick={() => setEntradaSeleccionada(null)}
+                        >
+                            ✕
+                        </button>
 
-                        CONCERTS REALITZATS
+                        <img
+                            src={entradaConcierto}
+                            alt={entradaSeleccionada.ciudad}
+                            className={
+                                new Date(entradaSeleccionada.fecha) < hoy
+                                    ? "entradaGrandeImg pasada"
+                                    : "entradaGrandeImg"
+                            }
+                        />
 
-                    </h2>
+                        <div className="entradaGrandeInfo">
 
-                    <div className="conciertosGrid">
+                            <h2>
+                                {entradaSeleccionada.ciudad}
+                            </h2>
 
-                        {pasados.map((concierto) => (
+                            <p>
+                                {entradaSeleccionada.fecha}
+                            </p>
 
-                            <article
-                                key={concierto.id}
-                                className="entradaCard pasada"
-                            >
+                            <p>
+                                {entradaSeleccionada.sala}
+                            </p>
 
-                                <img
-                                    src={entradaConcierto}
-                                    alt={concierto.ciudad}
-                                    className="entradaImg"
-                                />
+                            <p>
+                                {entradaSeleccionada.hora}
+                            </p>
 
-                                <div className="entradaInfo">
+                            <p>
+                                Entrada: {entradaSeleccionada.precio}
+                            </p>
 
-                                    <h3>{concierto.ciudad}</h3>
+                        </div>
 
-                                    <p>{concierto.fecha}</p>
+                        {new Date(entradaSeleccionada.fecha) < hoy && (
 
-                                    <p>{concierto.sala}</p>
+                            <div className="selloGrande">
 
-                                    <p>{concierto.hora} </p>
-                                    <p>Entrada: {concierto.precio}</p>
+                                CONCERT REALITZAT
 
-                                </div>
+                            </div>
 
-                            </article>
-
-                        ))}
+                        )}
 
                     </div>
 
-                </>
+                </div>
 
             )}
 

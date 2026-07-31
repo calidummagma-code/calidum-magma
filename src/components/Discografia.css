@@ -76,39 +76,60 @@
 ========================================== */
 
 .discoCard{
-    width:225px;
-    transition:.35s;
+
+    position:relative;
+
+    width:240px;
+
+    transition:.45s ease;
+
+    z-index:1;
+
 }
 
 .discoCard:hover{
-    transform:translateY(-10px);
-    box-shadow:
-        0 0 25px rgba(128,0,32,.45),
-        0 15px 40px rgba(0,0,0,.65);
-}
 
+    z-index:100;
+
+}
 /* ==========================================
    PORTADA
 ========================================== */
 
 .discoCover{
-    position:relative;
-    overflow:hidden;
-}
 
+    position:relative;
+
+    overflow:visible;
+
+}
 .discoCover img{
+
     width:100%;
+
     display:block;
+
     aspect-ratio:1/1;
+
     object-fit:cover;
-    transition:.5s;
+
+    border-radius:12px;
+
+    transition:
+        transform .45s,
+        box-shadow .45s,
+        filter .45s;
+
 }
 
 .discoCard:hover img{
-    transform:scale(1.05);
-    filter:grayscale(100%) contrast(1.2);
-}
 
+    transform:scale(1.7);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.75);
+
+}
 /* ==========================================
    TÍTULO
 ========================================== */
@@ -127,40 +148,68 @@
 ========================================== */
 
 .discoOverlay{
+
     position:absolute;
+
     inset:0;
-    background:rgba(0,0,0,.25);
-    backdrop-filter:blur(2px);
 
     display:flex;
+
     flex-direction:column;
+
     justify-content:center;
+
     align-items:center;
 
-    padding:20px;
+    text-align:center;
 
-    color:#fff;
+    padding:18px;
+
+    border-radius:12px;
+
+    background:linear-gradient(
+        rgba(0,0,0,.15),
+        rgba(0,0,0,.90)
+    );
 
     opacity:0;
-    transition:.35s;
-}
 
+    transition:.45s;
+
+    transform:scale(1.7);
+
+    box-sizing:border-box;
+
+}
 .discoCard:hover .discoOverlay{
-    opacity:1;
-}
 
+    opacity:1;
+
+}
 .discoOverlay h3{
+
     color:#fff;
-    font-size:18px;
+
+    font-size:17px;
+
     letter-spacing:2px;
-    margin-bottom:15px;
-    text-align:center;
+
+    margin-bottom:8px;
+
+    line-height:1.2;
+
 }
 
 .discoOverlay p{
+
     color:#ddd;
-    margin:4px 0;
-    font-size:15px;
+
+    margin:3px 0;
+
+    font-size:10px;
+
+    line-height:1.3;
+
 }
 
 /* ==========================================
@@ -176,20 +225,22 @@
 }
 
 .linksMusica a{
+
     color:#fff;
+
     border:1px solid #fff;
-    padding:7px 12px;
+
+    padding:5px 8px;
+
     text-decoration:none;
-    font-size:12px;
+
+    font-size:9px;
+
     text-transform:uppercase;
+
     transition:.3s;
-}
 
-.linksMusica a:hover{
-    background:#fff;
-    color:#000;
 }
-
 /* ==========================================
    RESPONSIVE
 ========================================== */
@@ -223,5 +274,19 @@
         width:85%;
         max-width:320px;
     }
+
+}
+
+.linksMusica{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:6px;
+
+    margin-top:12px;
 
 }

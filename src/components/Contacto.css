@@ -1,239 +1,183 @@
 /* ===================================
-   CONTACTO
+   CONTACTE
 =================================== */
 
 .contacto{
 
+    min-height:100vh;
+
     background:#050505;
 
-    padding:100px 40px;
+    padding:40px 60px 100px;
+
 }
 
 
-/* ===================================
-   TITULO
-=================================== */
-
-.tituloContacto{
-
-    color:white;
-
-    text-align:center;
-
-    font-size:58px;
-
-    letter-spacing:8px;
-
-    font-weight:800;
-
-    margin-bottom:40px;
-
-    position:relative;
-
-    top:-40px;
-}
-
 
 /* ===================================
-   CONTENEDOR
+   CONTENIDO
 =================================== */
 
 .contactoContenido{
 
-    max-width:1300px;
+    margin-top:50px;
 
-    margin:0 auto;
-
-    display:flex;
-
-    align-items:flex-start;
-
-    justify-content:center;
-
-    gap:90px;
 }
 
-
-/* ===================================
-   IMAGEN
-=================================== */
-
-.contactoIzquierda{
-
-    flex:1;
-
-    display:flex;
-
-    justify-content:center;
-
-    position:relative;
-
-    top:-80px;
-}
-
-
-.contactoImagen{
-
-    width:67.5%;
-
-    max-width:285px;
-
-    height:auto;
-
-    display:block;
-
-    border-radius:12px;
-
-    box-shadow:
-        0 0 35px rgba(0,0,0,.45);
-}
 
 
 /* ===================================
    FORMULARIO
 =================================== */
 
-.contactoDerecha{
+.contactoFormulario{
 
-    flex:1;
+    width:100%;
 
-    max-width:500px;
+    max-width:1000px;
 
-    margin-top:-80px;
-
-    position:relative;
-
-    left:160px;
 }
 
+.formularioContacto{
 
-.contactoDerecha form{
+    display:flex;
+
+    gap:40px;
+
+    align-items:stretch;
+
+}
+
+.columnaIzquierda,
+.columnaDerecha{
+
+    flex:1;
 
     display:flex;
 
     flex-direction:column;
 
-    gap:12px;
+    gap:20px;
+
 }
 
-
-.contactoDerecha input,
-.contactoDerecha textarea{
-
-    width:100%;
-
-    padding:10px;
-
-    background:#111;
-
-    border:2px solid #2b2b2b;
-
-    border-radius:8px;
-
-    color:white;
-
-    font-size:14px;
-
-    transition:.3s;
-
-    box-sizing:border-box;
-}
-
-
-.contactoDerecha textarea{
-
-    min-height:115px;
-
-    resize:vertical;
-}
-
-
-.contactoDerecha input:focus,
-.contactoDerecha textarea:focus{
-
-    outline:none;
-
-    border-color:#8b1e2d;
-
-    box-shadow:
-        0 0 15px rgba(139,30,45,.4);
-}
 
 
 /* ===================================
-   BOTON
+   CAMPOS
 =================================== */
 
-.contactoDerecha button{
+.contactoFormulario input,
+.contactoFormulario textarea{
 
-    padding:12px;
+    width:100%;
 
-    border:none;
+    background:#111;
 
-    border-radius:8px;
-
-    background:#8b1e2d;
+    border:2px solid #333;
 
     color:white;
 
-    font-size:15px;
+    padding:16px;
 
-    font-weight:bold;
+    font-size:18px;
 
-    letter-spacing:3px;
+    font-family:inherit;
+
+    border-radius:8px;
+
+    outline:none;
+
+    transition:.3s;
+
+}
+
+.contactoFormulario input:focus,
+.contactoFormulario textarea:focus{
+
+    border-color:#8f172b;
+
+}
+
+.contactoFormulario textarea{
+
+    flex:1;
+
+    min-height:200px;
+
+    resize:none;
+
+}
+
+
+
+/* ===================================
+   BOTÓN
+=================================== */
+
+.contactoFormulario button{
+
+    height:65px;
+
+    background:#941b32;
+
+    color:white;
+
+    border:none;
+
+    border-radius:10px;
+
+    font-size:22px;
+
+    font-weight:900;
+
+    letter-spacing:5px;
 
     cursor:pointer;
 
     transition:.3s;
+
 }
 
+.contactoFormulario button:hover{
 
-.contactoDerecha button:hover{
+    background:#c12745;
 
-    background:#a62639;
+    transform:scale(1.03);
+
 }
+
 
 
 /* ===================================
-   MOVIL
+   RESPONSIVE
 =================================== */
 
 @media (max-width:900px){
 
-    .contactoContenido{
+    .contacto{
+
+        padding:30px 20px 80px;
+
+    }
+
+    .formularioContacto{
 
         flex-direction:column;
 
-        align-items:center;
+        gap:25px;
 
     }
 
+    .contactoFormulario{
 
-    .contactoImagen{
-
-        max-width:400px;
-
-        width:100%;
+        max-width:100%;
 
     }
 
+    .contactoFormulario textarea{
 
-    .contactoDerecha{
-
-        width:100%;
-
-        max-width:450px;
-
-        margin-top:0;
-
-        left:0;
-
-    }
-
-
-    .tituloContacto{
-
-        font-size:42px;
+        min-height:180px;
 
     }
 

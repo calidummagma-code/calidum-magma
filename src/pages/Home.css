@@ -339,22 +339,21 @@ section{
 .about{
 
     background:
-
     linear-gradient(
         #040404,
         #000
     );
 
     padding:
-
-    clamp(20px,4vw,70px)
+    clamp(80px,8vw,120px)
     clamp(20px,8vw,120px);
 
     text-align:center;
 
 }
-
 .sectionTitle{
+
+    margin-top:20px;
 
     font-size:clamp(34px,5vw,60px);
 
@@ -364,17 +363,6 @@ section{
 
 }
 
-.sectionSubtitle{
-
-    margin-top:-25px;
-
-    margin-bottom:60px;
-
-    color:#bfbfbf;
-
-    font-size:clamp(15px,2vw,20px);
-
-}
 /* ==========================================
    GRID DE MIEMBROS
 ========================================== */
@@ -389,19 +377,18 @@ section{
 
     gap:2%;
 
-    margin-top:-40px;
+    margin-top:40px;
 
     width:100%;
 
 }
-
 .memberCard{
 
     flex:1;
 
     min-width:0;
 
-    max-width:24%;
+    max-width:21.5%;
 
 }
 
@@ -1120,55 +1107,6 @@ body,
 
 }
 
-
-/* ===========================
-   BOTIGA
-=========================== */
-
-.botiga{
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    justify-content:flex-start;
-
-    padding-top:40px;
-
-    overflow:hidden;
-}
-
-
-.botiga h2{
-
-    margin-bottom:10px;
-
-}
-
-
-/* ===========================
-   BOTIGA IMAGEN
-=========================== */
-
-.botigaConstruccion{
-
-    width:250px;
-
-    max-width:90%;
-
-    height:auto;
-
-    display:block;
-
-    margin-top:0;
-
-    position:relative;
-
-    top:0px;
-
-}
 /* =================================
    GALERIA
 ================================= */

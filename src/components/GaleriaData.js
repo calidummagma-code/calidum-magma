@@ -4,11 +4,7 @@ import foto3 from "../assets/galeria/FOTO3.jpg";
 import foto4 from "../assets/galeria/FOTO4.jpg";
 import foto5 from "../assets/galeria/FOTO5.jpg";
 import foto6 from "../assets/galeria/FOTO6.jpg";
-
-
 import videoSansaRock from "../assets/videos/hauries-ser-fort.mp4";
-
-
 
 export const elementos = [
   {
