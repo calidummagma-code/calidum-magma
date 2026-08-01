@@ -14,6 +14,9 @@ import Reproductor from "../components/Reproductor";
 import entradaConcierto from "../assets/entrada-concierto.png";
 import Bolos from "../components/Bolos";
 import Galeria from "../components/Galeria";
+import fondoCarrer from "../assets/fondo-carrer-merceria-personajes2.jpg";
+
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faInstagram,
@@ -27,6 +30,7 @@ export default function Home() {
 
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [mostrarFondo, setMostrarFondo] = useState(false);
 
 
 
@@ -52,6 +56,31 @@ export default function Home() {
         "scroll",
         handleScroll
       );
+
+{mostrarFondo && (
+
+    <div
+        className="fondoEspecial"
+        onClick={() => setMostrarFondo(false)}
+    >
+
+        <img
+            src={fondoCarrer}
+            alt="Carrer Merceria"
+        />
+
+        <button
+            className="cerrarFondo"
+            onClick={() => setMostrarFondo(false)}
+        >
+            ✕
+        </button>
+
+    </div>
+
+)}
+
+
 
     };
 
@@ -123,11 +152,14 @@ backgroundImage:`url(${fotoBanda})`
 
   <div className="navbarLeft">
 
-    <img
-      src={logo}
-      alt="Calidum Magma"
-      className="navbarLogo"
-    />
+   
+  <img
+    src={logo}
+    alt="Calidum Magma"
+    className="navbarLogo"
+    onClick={() => setMostrarFondo(true)}
+/>
+
 
     <nav
       className={
@@ -467,7 +499,25 @@ LA BANDA
 
 
 
+{mostrarFondo && (
 
+    <div className="fondoEspecial">
+
+        <img
+            src={fondoCarrer}
+            alt="Carrer Merceria"
+        />
+
+        <button
+            className="cerrarFondo"
+            onClick={() => setMostrarFondo(false)}
+        >
+            ✕
+        </button>
+
+    </div>
+
+)}
 
 
 
