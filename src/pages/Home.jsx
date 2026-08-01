@@ -14,7 +14,7 @@ import Reproductor from "../components/Reproductor";
 import entradaConcierto from "../assets/entrada-concierto.png";
 import Bolos from "../components/Bolos";
 import Galeria from "../components/Galeria";
-import fondoCarrer from "../assets/fondo-carrer-merceria-personajes2.jpg";
+import videoLogo from "../assets/videos/Video-logo-web.mp4";
 
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -503,10 +503,12 @@ LA BANDA
 
     <div className="fondoEspecial">
 
-        <img
-            src={fondoCarrer}
-            alt="Carrer Merceria"
-        />
+        <video
+    src={videoLogo}
+    autoPlay
+    playsInline
+    controls
+/>
 
         <button
             className="cerrarFondo"
