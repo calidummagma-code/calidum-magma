@@ -1,0 +1,255 @@
+/* ==========================================
+   PAGINA
+========================================== */
+
+.biografiaPagina{
+
+    min-height:100vh;
+
+    background:#090909;
+
+    color:#F4F0E8;
+
+    padding:60px 8% 100px;
+
+    font-family:Arial,sans-serif;
+
+}
+
+
+
+/* ==========================================
+   BOTON CERRAR
+========================================== */
+
+.cerrarBiografia{
+
+    position:fixed;
+
+    top:25px;
+
+    right:35px;
+
+    width:48px;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(0,0,0,.55);
+
+    color:#F4F0E8;
+
+    font-size:34px;
+
+    line-height:48px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    z-index:100;
+
+}
+
+
+
+.cerrarBiografia:hover{
+
+    color:#7A1F2B;
+
+    transform:scale(1.15);
+
+}
+
+
+
+/* ==========================================
+   CABECERA
+========================================== */
+
+.cabeceraBiografia{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:25px;
+
+    margin-bottom:70px;
+
+}
+
+
+
+.cabeceraBiografia .numero{
+
+    font-family:"Cinzel",serif;
+
+    font-size:68px;
+
+    color:#7A1F2B;
+
+}
+
+
+
+.cabeceraBiografia h1{
+
+    margin:0;
+
+    font-family:"Cinzel",serif;
+
+    font-size:54px;
+
+    letter-spacing:6px;
+
+    color:#F4F0E8;
+
+}
+
+
+
+/* ==========================================
+   TEXTO
+========================================== */
+
+.textoBiografia{
+
+    max-width:950px;
+
+    margin:auto;
+
+}
+
+
+
+.textoBiografia p{
+
+    margin-bottom:35px;
+
+    font-size:20px;
+
+    line-height:2;
+
+    color:#d8d8d8;
+
+    text-align:justify;
+
+}
+
+
+
+.textoBiografia strong{
+
+    color:#F4F0E8;
+
+}
+
+
+
+.textoBiografia p:first-child::first-letter{
+
+    float:left;
+
+    margin-right:12px;
+
+    font-family:"Cinzel",serif;
+
+    font-size:72px;
+
+    line-height:.9;
+
+    color:#7A1F2B;
+
+}
+
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:900px){
+
+    .biografiaPagina{
+
+        padding:40px 25px 70px;
+
+    }
+
+
+
+    .cabeceraBiografia{
+
+        flex-direction:column;
+
+        gap:10px;
+
+        margin-bottom:40px;
+
+    }
+
+
+
+    .cabeceraBiografia .numero{
+
+        font-size:46px;
+
+    }
+
+
+
+    .cabeceraBiografia h1{
+
+        font-size:34px;
+
+        letter-spacing:3px;
+
+        text-align:center;
+
+    }
+
+
+
+    .textoBiografia p{
+
+        font-size:17px;
+
+        line-height:1.8;
+
+        text-align:left;
+
+    }
+
+
+
+    .textoBiografia p:first-child::first-letter{
+
+        font-size:54px;
+
+    }
+
+
+
+    .cerrarBiografia{
+
+        top:15px;
+
+        right:15px;
+
+        width:42px;
+
+        height:42px;
+
+        line-height:42px;
+
+        font-size:28px;
+
+    }
+
+}

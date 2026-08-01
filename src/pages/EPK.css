@@ -1,0 +1,775 @@
+/* ==========================================
+   GENERAL
+========================================== */
+
+.epk{
+
+    background:#090909;
+
+    color:#F4F0E8;
+
+    overflow-x:hidden;
+
+    font-family:Arial, sans-serif;
+
+}
+
+
+.epk h2{
+
+    color:#F4F0E8;
+
+}
+
+
+
+/* ==========================================
+   PORTADA
+========================================== */
+
+
+.hero{
+
+    position:relative;
+
+    width:100%;
+
+    min-height:85vh;
+
+    overflow:hidden;
+
+}
+
+
+
+.epkFondo{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    filter:brightness(.65) contrast(1.15);
+
+}
+
+
+
+/* DEGRADADO SOBRE LA IMAGEN */
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:1;
+
+    background:linear-gradient(
+        to bottom,
+        rgba(0,0,0,.25) 0%,
+        rgba(0,0,0,.45) 45%,
+        rgba(0,0,0,.95) 100%
+    );
+
+}
+
+
+
+.heroOverlay{
+
+    position:relative;
+
+    z-index:2;
+
+    width:100%;
+
+    min-height:85vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px 30px;
+
+}
+
+
+
+.epkLogo{
+
+    width:160px;
+
+    margin-bottom:30px;
+
+}
+
+
+
+.epkTitulo{
+
+    font-family:"Cinzel",serif;
+
+    font-size:62px;
+
+    letter-spacing:10px;
+
+    margin:0;
+
+}
+
+
+
+.epkFrase{
+
+    margin-top:30px;
+
+    font-family:"Cinzel",serif;
+
+    font-size:36px;
+
+    line-height:1.25;
+
+}
+
+
+
+.epkSubtitulo{
+
+    margin-top:35px;
+
+    font-size:14px;
+
+    letter-spacing:5px;
+
+    text-transform:uppercase;
+
+    color:#7A1F2B;
+
+}
+
+
+
+
+
+/* ==========================================
+   NUMEROS
+========================================== */
+
+
+.numero{
+
+    display:block;
+
+    font-family:"Cinzel",serif;
+
+    font-size:70px;
+
+    color:#7A1F2B;
+
+    margin-bottom:15px;
+
+}
+
+
+
+
+
+/* ==========================================
+   TITULOS GENERALES
+========================================== */
+
+
+.quiSom h2,
+.biografia h2,
+.directe h2,
+.musica h2,
+.premsa h2,
+.rider h2,
+.datosBanda h2,
+.contacteEpk h2{
+
+    font-family:"Cinzel",serif;
+
+    font-size:52px;
+
+    letter-spacing:5px;
+
+    margin-bottom:30px;
+
+}
+
+
+
+
+
+/* ==========================================
+   TEXTOS
+========================================== */
+
+
+.quiSom p,
+.biografia p,
+.directe p,
+.musica p,
+.premsa p,
+.rider p,
+.datosBanda p,
+.contacteEpk p{
+
+    font-size:19px;
+
+    line-height:1.9;
+
+    color:#d8d8d8;
+
+}
+
+
+
+
+
+/* ==========================================
+   QUI SOM
+========================================== */
+
+
+.quiSom{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:80px;
+
+    padding:100px 10%;
+
+    align-items:center;
+
+    background:#0d0d0d;
+
+}
+
+
+
+.cita{
+
+    border-left:3px solid #7A1F2B;
+
+    padding:40px;
+
+    background:rgba(255,255,255,.03);
+
+    position:relative;
+
+}
+
+
+
+.cometes{
+
+    position:absolute;
+
+    top:-45px;
+
+    left:10px;
+
+    font-family:"Cinzel",serif;
+
+    font-size:110px;
+
+    color:#7A1F2B;
+
+}
+
+
+
+.cita p{
+
+    font-family:"Cinzel",serif;
+
+    font-size:26px;
+
+    color:white;
+
+}
+
+
+
+
+
+/* ==========================================
+   BIOGRAFIA
+========================================== */
+
+
+.biografia{
+
+    background:#111;
+
+    padding:110px 10%;
+
+}
+
+
+
+.biografiaContenido{
+
+    max-width:900px;
+
+}
+
+
+
+.fraseBiografia{
+
+    margin-top:50px;
+
+    padding-left:30px;
+
+    border-left:3px solid #7A1F2B;
+
+    font-family:"Cinzel",serif;
+
+    font-size:34px;
+
+    line-height:1.4;
+
+}
+
+
+
+
+
+/* ==========================================
+   EL DIRECTE
+========================================== */
+
+
+.directe{
+
+    background:#0b0b0b;
+
+    padding:100px 10%;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:80px;
+
+    align-items:center;
+
+}
+
+
+
+.directeDades{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:25px;
+
+}
+
+
+
+.dada{
+
+    background:#181818;
+
+    border:1px solid rgba(255,255,255,.1);
+
+    padding:35px 20px;
+
+    text-align:center;
+
+}
+
+
+
+.dada:hover{
+
+    border-color:#7A1F2B;
+
+}
+
+
+
+.dada strong{
+
+    display:block;
+
+    font-family:"Cinzel",serif;
+
+    font-size:48px;
+
+    color:#7A1F2B;
+
+}
+
+
+
+.dada span{
+
+    font-size:12px;
+
+    letter-spacing:3px;
+
+    color:#ccc;
+
+}
+
+
+
+
+
+/* ==========================================
+   MUSICA
+========================================== */
+
+
+.musica{
+
+    background:#111;
+
+    padding:120px 10%;
+
+    display:grid;
+
+    grid-template-columns:1fr 1.2fr;
+
+    gap:90px;
+
+    align-items:center;
+
+}
+
+
+
+.discPrincipal{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:45px;
+
+}
+
+
+
+.portadaDisc{
+
+    width:380px;
+
+    height:380px;
+
+    object-fit:cover;
+
+}
+
+
+
+.discInfo{
+
+    max-width:300px;
+
+}
+
+
+
+.discInfo h3{
+
+    font-family:"Cinzel",serif;
+
+    font-size:30px;
+
+}
+
+
+
+
+
+/* ==========================================
+   PREMSA
+========================================== */
+
+
+.premsa{
+
+    background:#0d0d0d;
+
+    padding:110px 10%;
+
+}
+
+
+
+.frasesPremsa{
+
+    margin-top:50px;
+
+    display:grid;
+
+    gap:25px;
+
+}
+
+
+
+.citaPremsa{
+
+    padding:30px;
+
+    border-left:3px solid #7A1F2B;
+
+    background:#151515;
+
+    font-family:"Cinzel",serif;
+
+    font-size:22px;
+
+}
+
+
+
+
+
+/* ==========================================
+   RIDER
+========================================== */
+
+
+.rider{
+
+    background:#111;
+
+    padding:110px 10%;
+
+}
+
+
+
+.riderDatos{
+
+    margin-top:60px;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:30px;
+
+}
+
+
+
+.riderBloque{
+
+    background:#181818;
+
+    padding:35px;
+
+    border:1px solid rgba(255,255,255,.1);
+
+}
+
+
+
+.riderBloque h3{
+
+    color:#7A1F2B;
+
+    letter-spacing:3px;
+
+}
+
+
+
+
+
+/* ==========================================
+   DATOS BANDA
+========================================== */
+
+
+.datosBanda{
+
+    background:#0b0b0b;
+
+    padding:110px 10%;
+
+}
+
+
+
+.datosBanda strong{
+
+      color:#7A1F2B;
+
+}
+
+
+
+
+
+/* ==========================================
+   CONTACTE
+========================================== */
+
+
+.contacteEpk{
+
+    background:#111;
+
+    padding:110px 10%;
+
+}
+
+
+/* ==========================================
+   VEURE MÉS
+========================================== */
+
+
+.veureMes{
+
+    display:inline-block;
+
+    margin-top:35px;
+
+    color:#2b8cff;
+
+    text-decoration:none;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    transition:.3s ease;
+
+}
+
+
+
+.veureMes:hover{
+
+    color:#7A1F2B;
+
+    transform:translateX(5px);
+
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+
+@media(max-width:900px){
+
+
+    .epkTitulo{
+
+        font-size:42px;
+
+        letter-spacing:5px;
+
+    }
+
+
+    .epkFrase{
+
+        font-size:26px;
+
+    }
+
+
+    .quiSom,
+    .directe,
+    .musica{
+
+        grid-template-columns:1fr;
+
+        padding:70px 30px;
+
+    }
+
+
+
+    .biografia,
+    .premsa,
+    .rider,
+    .datosBanda,
+    .contacteEpk{
+
+        padding:70px 30px;
+
+    }
+
+
+
+    .directeDades,
+    .riderDatos{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+
+    .discPrincipal{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+
+
+    .portadaDisc{
+
+        width:280px;
+
+        height:280px;
+
+    }
+
+
+
+    .quiSom h2,
+    .biografia h2,
+    .directe h2,
+    .musica h2,
+    .premsa h2,
+    .rider h2,
+    .datosBanda h2,
+    .contacteEpk h2{
+
+        font-size:38px;
+
+    }
+
+
+}

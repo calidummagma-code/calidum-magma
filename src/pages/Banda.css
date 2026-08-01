@@ -1,0 +1,419 @@
+/* ==========================================
+   PAGINA
+========================================== */
+
+.bandaPagina{
+
+    position:relative;
+
+    min-height:100vh;
+
+    background:#090909;
+
+    color:#F4F0E8;
+
+    padding:0;
+
+    overflow:hidden;
+
+}
+
+
+
+/* ==========================================
+   BOTON CERRAR
+========================================== */
+
+.cerrarBanda{
+
+    position:fixed;
+
+    top:25px;
+
+    right:35px;
+
+    width:48px;
+
+    height:48px;
+
+    border:none;
+
+    background:rgba(0,0,0,.55);
+
+    color:#F4F0E8;
+
+    font-size:34px;
+
+    line-height:48px;
+
+    cursor:pointer;
+
+    border-radius:50%;
+
+    transition:.30s;
+
+    z-index:100;
+
+}
+
+
+
+.cerrarBanda:hover{
+
+    color:#7A1F2B;
+
+    transform:scale(1.15);
+
+}
+
+
+
+/* ==========================================
+   NUMERO
+========================================== */
+
+.bandaPagina .numero{
+
+    position:absolute;
+
+    top:25px;
+
+    left:50%;
+
+    transform:translateX(-170px);
+
+    z-index:20;
+
+    margin:0;
+
+    font-family:"Cinzel",serif;
+
+    font-size:62px;
+
+    color:#7A1F2B;
+
+    text-shadow:0 0 20px rgba(0,0,0,.85);
+
+}
+
+
+/* ==========================================
+   TITULO
+========================================== */
+
+.bandaPagina h1{
+
+    position:absolute;
+
+    top:38px;
+
+    left:50%;
+
+    transform:translateX(-80px);
+
+    z-index:20;
+
+    margin:0;
+
+    font-family:"Cinzel",serif;
+
+    font-size:52px;
+
+    letter-spacing:6px;
+
+    color:#F4F0E8;
+
+    text-shadow:0 0 20px rgba(0,0,0,.85);
+
+}
+
+
+/* ==========================================
+   IMAGEN
+========================================== */
+
+.fotoBanda{
+
+    position:relative;
+
+    width:78%;
+
+    max-width:920px;
+
+    margin:10px auto 0;
+
+}
+
+
+
+.fotoBanda img{
+
+    width:100%;
+
+    height:auto;
+
+    display:block;
+
+    object-fit:contain;
+
+}
+
+
+
+/* ==========================================
+   ZONAS
+========================================== */
+
+.zona{
+
+    position:absolute;
+
+    top:0;
+
+    height:100%;
+
+    cursor:pointer;
+
+}
+
+
+
+.zona1{
+
+    left:0;
+
+    width:25%;
+
+}
+
+
+
+.zona2{
+
+    left:25%;
+
+    width:25%;
+
+}
+
+
+
+.zona3{
+
+    left:50%;
+
+    width:25%;
+
+}
+
+
+
+.zona4{
+
+    left:75%;
+
+    width:25%;
+
+}
+
+
+
+/* ==========================================
+   FICHAS
+========================================== */
+
+.fichaBanda{
+
+    position:absolute;
+
+    bottom:72%;
+
+    left:50%;
+
+    transform:translateX(-50%) translateY(20px);
+
+    width:240px;
+
+    padding:25px;
+
+    background:rgba(0,0,0,.94);
+
+    border-left:3px solid #7A1F2B;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.65);
+
+    text-align:left;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.35s;
+
+}
+
+
+
+.zona:hover .fichaBanda{
+
+    opacity:1;
+
+    transform:translateX(-50%) translateY(0);
+
+}
+
+
+
+.fichaBanda h3{
+
+    margin:0 0 10px;
+
+    font-family:"Cinzel",serif;
+
+    font-size:24px;
+
+}
+
+
+
+.fichaBanda strong{
+
+    display:block;
+
+    margin-bottom:15px;
+
+    color:#7A1F2B;
+
+    letter-spacing:2px;
+
+}
+
+
+
+.fichaBanda p{
+
+    margin:0;
+
+    color:#cccccc;
+
+    line-height:1.6;
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:900px){
+
+    .bandaPagina{
+
+        min-height:100vh;
+
+        padding:0;
+
+    }
+
+
+
+    .cerrarBanda{
+
+        top:15px;
+
+        right:15px;
+
+        width:42px;
+
+        height:42px;
+
+        line-height:42px;
+
+        font-size:28px;
+
+    }
+
+
+
+    .bandaPagina .numero{
+
+        top:20px;
+
+        font-size:46px;
+
+    }
+
+
+
+    .bandaPagina h1{
+
+        top:75px;
+
+        font-size:36px;
+
+        letter-spacing:4px;
+
+        width:100%;
+
+        text-align:center;
+
+    }
+
+
+
+    .fotoBanda{
+
+        width:96%;
+
+        margin:20px auto 0;
+
+    }
+
+
+
+    .fotoBanda img{
+
+        width:100%;
+
+        height:auto;
+
+    }
+
+
+
+    .fichaBanda{
+
+        width:170px;
+
+        padding:15px;
+
+        bottom:66%;
+
+    }
+
+
+
+    .fichaBanda h3{
+
+        font-size:18px;
+
+    }
+
+
+
+    .fichaBanda strong{
+
+        font-size:13px;
+
+    }
+
+
+
+    .fichaBanda p{
+
+        font-size:13px;
+
+        line-height:1.4;
+
+    }
+
+}

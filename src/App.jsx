@@ -6,6 +6,11 @@ import Discografia from "./components/Discografia";
 import Bolos from "./components/Bolos";
 import Galeria from "./components/Galeria";
 import Contacto from "./components/Contacto";
+import EPK from "./pages/EPK";
+import Banda from "./pages/Banda";
+import Bio from "./pages/Bio";
+import Music from "./pages/Music";
+
 
 export default function App() {
 
@@ -44,12 +49,38 @@ export default function App() {
                 path="/contacto"
                 element={<Contacto />}
             />
-
+<Route path="/banda" element={<Banda />} />
             {/* SI LA RUTA NO EXISTE */}
             <Route
                 path="*"
                 element={<Home />}
             />
+<Route
+    path="/music"
+    element={<Music />}
+/>
+
+
+
+
+
+<Route
+    path="/biografia"
+    element={<Bio />}
+/>
+            
+<Route
+    path="/epk"
+    element={<EPK />}
+/>
+
+<Route
+    path="/music"
+    element={<Music />}
+/>
+
+
+
 
         </Routes>
 
