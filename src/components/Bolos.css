@@ -18,6 +18,7 @@
 
 }
 
+
 /* ==========================================
    CABECERA
 ========================================== */
@@ -33,6 +34,7 @@
     margin-bottom:40px;
 
 }
+
 
 /* ==========================================
    CARRUSEL
@@ -51,6 +53,7 @@
     justify-content:center;
 
 }
+
 
 /* ==========================================
    CINTA HORIZONTAL
@@ -79,11 +82,13 @@
     padding-right:calc(50% - 160px);
 
 }
+
 .conciertosGrid::-webkit-scrollbar{
 
     display:none;
 
 }
+
 
 /* ==========================================
    TARJETAS
@@ -109,6 +114,7 @@
 
 }
 
+
 /* ==========================================
    IMAGEN
 ========================================== */
@@ -130,6 +136,7 @@
     filter:drop-shadow(0 0 25px rgba(128,0,32,.45));
 
 }
+
 
 /* ==========================================
    TEXTO
@@ -184,6 +191,7 @@
     text-shadow:2px 2px 6px #000;
 
 }
+
 
 /* ==========================================
    CONCIERTOS PASADOS
@@ -286,17 +294,6 @@
 
 }
 
-.flecha:focus,
-.flecha:focus-visible,
-.flecha:active{
-
-    outline:none;
-
-    box-shadow:none;
-
-    background:transparent;
-
-}
 
 .flecha.izquierda{
 
@@ -309,6 +306,8 @@
     right:30px;
 
 }
+
+
 /* ==========================================
    VISOR
 ========================================== */
@@ -332,6 +331,7 @@
     animation:fadeIn .3s ease;
 
 }
+
 
 /* ==========================================
    ENTRADA GRANDE
@@ -362,6 +362,7 @@
     filter:grayscale(100%);
 
 }
+
 
 /* ==========================================
    INFORMACIÓN EN GRANDE
@@ -405,6 +406,7 @@
 
 }
 
+
 /* ==========================================
    BOTÓN CERRAR
 ========================================== */
@@ -433,15 +435,8 @@
 
     cursor:pointer;
 
-    transition:.3s;
-
 }
 
-.cerrarVisor:hover{
-
-    transform:scale(1.15);
-
-}
 
 /* ==========================================
    SELLO GRANDE
@@ -477,6 +472,7 @@
 
 }
 
+
 /* ==========================================
    ANIMACIONES
 ========================================== */
@@ -484,41 +480,34 @@
 @keyframes fadeIn{
 
     from{
-
         opacity:0;
-
     }
 
     to{
-
         opacity:1;
-
     }
 
 }
+
 
 @keyframes zoomIn{
 
     from{
-
         opacity:0;
-
         transform:scale(.8);
-
     }
 
     to{
-
         opacity:1;
-
         transform:scale(1);
-
     }
 
 }
 
+
 /* ==========================================
-   RESPONSIVE
+   TABLET
+   (se mantiene prácticamente igual)
 ========================================== */
 
 @media (max-width:900px){
@@ -531,11 +520,13 @@
 
     }
 
+
     .entradaCard{
 
         width:250px;
 
     }
+
 
     .flecha{
 
@@ -547,17 +538,20 @@
 
     }
 
+
     .entradaGrandeInfo h2{
 
         font-size:18px;
 
     }
 
+
     .entradaGrandeInfo p{
 
         font-size:12px;
 
     }
+
 
     .selloGrande{
 
@@ -568,6 +562,209 @@
         top:35px;
 
         right:20px;
+
+    }
+
+}
+
+
+/* ==========================================
+   MOVIL
+========================================== */
+
+@media (max-width:600px){
+
+    .bolos{
+
+        padding:60px 15px 80px;
+
+    }
+
+
+    .bolos .sectionSubtitle{
+
+        margin-bottom:25px;
+
+    }
+
+
+    .conciertosGrid{
+
+        gap:18px;
+
+        padding:15px;
+
+        padding-left:calc(50% - 42vw);
+
+        padding-right:calc(50% - 42vw);
+
+        scroll-snap-type:x mandatory;
+
+    }
+
+
+    .entradaCard{
+
+        width:84vw;
+
+        max-width:340px;
+
+        scroll-snap-align:center;
+
+    }
+
+
+    .entradaImg{
+
+        width:100%;
+
+        height:auto;
+
+        aspect-ratio:auto;
+
+    }
+
+
+    .entradaInfo{
+
+        top:48%;
+
+        width:64%;
+
+        padding:0 5px;
+
+    }
+
+
+    .entradaInfo h3{
+
+        font-size:clamp(14px,4vw,17px);
+
+        letter-spacing:.5px;
+
+    }
+
+
+    .entradaInfo p{
+
+        font-size:clamp(10px,3vw,12px);
+
+        line-height:1.15;
+
+        margin:3px 0;
+
+    }
+
+
+    .flecha{
+
+        display:none;
+
+    }
+
+
+    .selloFinalizado{
+
+        top:25px;
+
+        right:10px;
+
+        padding:6px 10px;
+
+        font-size:clamp(10px,3vw,12px);
+
+        border-width:2px;
+
+    }
+
+
+    /* VISOR MOVIL */
+
+    .entradaGrande{
+
+        width:94vw;
+
+        max-height:90vh;
+
+    }
+
+
+    .entradaGrandeImg{
+
+        width:100%;
+
+        height:auto;
+
+    }
+
+
+    .entradaGrandeInfo{
+
+        top:48%;
+
+        width:64%;
+
+    }
+
+
+    .entradaGrandeInfo h2{
+
+        font-size:clamp(16px,5vw,22px);
+
+        margin-bottom:5px;
+
+    }
+
+
+    .entradaGrandeInfo p{
+
+        font-size:clamp(11px,3.5vw,15px);
+
+        margin:3px 0;
+
+    }
+
+
+    .cerrarVisor{
+
+        width:38px;
+
+        height:38px;
+
+        font-size:20px;
+
+        top:-12px;
+
+        right:-8px;
+
+    }
+
+
+    .selloGrande{
+
+        top:25px;
+
+        right:10px;
+
+        padding:6px 10px;
+
+        border-width:3px;
+
+        font-size:clamp(11px,4vw,16px);
+
+        letter-spacing:1px;
+
+    }
+
+}
+
+
+
+@media (max-width:600px){
+
+    .bolos{
+
+        padding-bottom:40px;
 
     }
 

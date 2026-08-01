@@ -299,3 +299,29 @@
 
     outline:none;
 }
+
+
+/* ===================================
+   AJUSTE MOVIL
+=================================== */
+
+@media (max-width:600px){
+
+    .galeria{
+
+        padding:30px 15px;
+
+    }
+
+
+    .tituloGaleria{
+
+        font-size:38px;
+
+        letter-spacing:5px;
+
+        margin-bottom:30px;
+
+    }
+
+}

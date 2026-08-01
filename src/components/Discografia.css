@@ -245,38 +245,217 @@
    RESPONSIVE
 ========================================== */
 
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
 @media (max-width:900px){
 
+    .discografia{
+
+        padding:80px 20px;
+
+    }
+
     .discografiaHeader{
+
         flex-direction:column;
+
         align-items:center;
-        gap:20px;
+
+        justify-content:center;
+
+        margin-bottom:40px;
+
     }
 
     .tituloBloque{
+
         align-items:center;
+
     }
 
-    .playerSuperior,
-    .playerSuperior .reproductor{
-        width:280px;
+    .sectionTitle{
+
+        font-size:40px;
+
+        letter-spacing:5px;
+
+        text-align:center;
+
+    }
+
+    .sectionSubtitle{
+
+        font-size:18px;
+
+        margin-bottom:0;
+
+        text-align:center;
+
+    }
+
+    /* ==========================
+       GRID -> CARRUSEL
+    ========================== */
+
+    .discografiaGrid{
+
+        display:flex;
+
+        flex-wrap:nowrap;
+
+        overflow-x:auto;
+
+        overflow-y:hidden;
+
+        justify-content:flex-start;
+
+        align-items:flex-start;
+
+        gap:25px;
+
+        padding:15px 15px 30px;
+
+        margin-top:0;
+
+        scroll-snap-type:x mandatory;
+
+        scroll-behavior:smooth;
+
+        -webkit-overflow-scrolling:touch;
+
+    }
+
+    .discografiaGrid::-webkit-scrollbar{
+
+        display:none;
+
     }
 
     .discografiaGrid{
-        flex-direction:column;
-        align-items:center;
-        padding-left:0;
-        margin-top:0;
-        gap:40px;
+
+        scrollbar-width:none;
+
     }
 
+    /* ==========================
+       TARJETAS
+    ========================== */
+
     .discoCard{
-        width:85%;
-        max-width:320px;
+
+        flex:0 0 82%;
+
+        min-width:82%;
+
+        max-width:82%;
+
+        scroll-snap-align:center;
+
+    }
+
+    .discoCover img{
+
+        border-radius:14px;
+
+    }
+
+    /* ==========================
+       TÍTULO
+    ========================== */
+
+    .tituloNormal{
+
+        font-size:20px;
+
+        margin-top:20px;
+
+        letter-spacing:2px;
+
+    }
+
+    /* ==========================
+       OVERLAY
+    ========================== */
+
+    .discoOverlay{
+
+        transform:none;
+
+    }
+
+    .discoCard:hover img{
+
+        transform:scale(1.08);
+
+    }
+
+    .discoCard:hover .discoOverlay{
+
+        opacity:1;
+
+    }
+
+    .discoOverlay h3{
+
+        font-size:20px;
+
+    }
+
+    .discoOverlay p{
+
+        font-size:14px;
+
+    }
+
+    .linksMusica{
+
+        gap:10px;
+
+        margin-top:20px;
+
+    }
+
+    .linksMusica a{
+
+        font-size:11px;
+
+        padding:8px 12px;
+
     }
 
 }
 
+/* ==========================================
+   MÓVILES PEQUEÑOS
+========================================== */
+
+@media (max-width:430px){
+
+    .discoCard{
+
+        flex:0 0 88%;
+
+        min-width:88%;
+
+        max-width:88%;
+
+    }
+
+    .sectionTitle{
+
+        font-size:34px;
+
+    }
+
+    .sectionSubtitle{
+
+        font-size:16px;
+
+    }
+
+}
 .linksMusica{
 
     display:flex;
