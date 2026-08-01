@@ -28,7 +28,7 @@ export default function EPK(){
 
 
 
-                <div className="heroOverlay">
+                <div className="epkHeroContent">
 
 
                     <img

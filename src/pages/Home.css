@@ -22,16 +22,32 @@ body{
     overflow-x:hidden;
 }
 
+#root{
+    width:100%;
+    min-height:100vh;
+}
+
 img{
     display:block;
     max-width:100%;
     height:auto;
 }
 
+button{
+    font-family:inherit;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
 section{
     width:100%;
     position:relative;
+    scroll-margin-top:80px;
 }
+
 
 .home{
     width:100%;
@@ -67,26 +83,35 @@ section{
 }
 
 
+/* ==========================================
+   HERO OVERLAY FIX
+========================================== */
 
 .heroOverlay{
 
     position:absolute;
 
-    inset:0;
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
 
     background:
     linear-gradient(
         rgba(0,0,0,.35),
-        rgba(0,0,0,.85)
+        rgba(0,0,0,.88)
     );
 
-}
+    z-index:1;
 
+}
 
 
 /* ==========================================
    NAVBAR
 ========================================== */
+
 
 .navbar{
 
@@ -100,19 +125,35 @@ section{
 
     height:90px;
 
+    padding:0 clamp(20px,5vw,70px);
+
     display:flex;
 
     justify-content:space-between;
 
     align-items:center;
 
-    padding:0 clamp(20px,5vw,70px);
-
     z-index:999;
 
-    transition:.35s;
+    transition:.35s ease;
 
 }
+
+
+.navbarScrolled{
+
+    background:rgba(0,0,0,.92);
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+
+    0 5px 25px rgba(0,0,0,.45);
+
+}
+
+
+
 .navbarLeft{
 
     display:flex;
@@ -124,17 +165,6 @@ section{
 }
 
 
-.navbarScrolled{
-
-    background:rgba(0,0,0,.92);
-
-    backdrop-filter:blur(12px);
-
-    box-shadow:0 5px 25px rgba(0,0,0,.45);
-
-}
-
-
 
 .navbarLogo{
 
@@ -142,11 +172,12 @@ section{
 
     cursor:pointer;
 
-    transition:.35s;
-
     flex-shrink:0;
 
+    transition:.35s ease;
+
 }
+
 
 .navbarLogo:hover{
 
@@ -160,6 +191,7 @@ section{
    MENU
 ========================================== */
 
+
 .menu{
 
     display:flex;
@@ -169,6 +201,8 @@ section{
     gap:clamp(18px,2vw,35px);
 
 }
+
+
 
 .menu button{
 
@@ -186,9 +220,11 @@ section{
 
     cursor:pointer;
 
-    transition:.3s;
+    transition:.3s ease;
 
 }
+
+
 
 .menu button:hover{
 
@@ -198,52 +234,6 @@ section{
 
 }
 
-
-/* ==========================================
-   REDES SOCIALES MENÚ
-========================================== */
-
-.socialMenu{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:14px;
-
-    margin-left:12px;
-
-}
-
-.socialMenu a{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    transition:.3s;
-
-}
-
-.socialMenu img{
-
-    width:24px;
-
-    height:24px;
-
-    object-fit:contain;
-
-    transition:.3s;
-
-}
-
-.socialMenu a:hover{
-
-    transform:scale(1.20);
-
-}
 
 
 .menuButton{
@@ -265,8 +255,62 @@ section{
 
 
 /* ==========================================
+   REDES SOCIALES MENU
+========================================== */
+
+
+.socialMenu{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    margin-left:12px;
+
+}
+
+
+
+.socialMenu a{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    transition:.3s ease;
+
+}
+
+
+
+.socialMenu img{
+
+    width:24px;
+
+    height:24px;
+
+    object-fit:contain;
+
+}
+
+
+
+.socialMenu a:hover{
+
+    transform:scale(1.2);
+
+}
+
+
+
+/* ==========================================
    HERO CONTENT
 ========================================== */
+
 
 .heroContent{
 
@@ -274,9 +318,9 @@ section{
 
     z-index:10;
 
-    text-align:center;
-
     width:min(90%,1100px);
+
+    text-align:center;
 
     animation:fadeIn 1.2s ease;
 
@@ -286,7 +330,9 @@ section{
 
 .heroLogo{
 
-    width:clamp(170px,20vw,310px);
+    width:
+
+    clamp(170px,20vw,310px);
 
     margin:auto;
 
@@ -300,7 +346,9 @@ section{
 
     margin-top:20px;
 
-    font-size:clamp(40px,6vw,78px);
+    font-size:
+
+    clamp(40px,6vw,78px);
 
     font-weight:900;
 
@@ -320,7 +368,9 @@ section{
 
     margin-top:20px;
 
-    font-size:clamp(15px,2vw,24px);
+    font-size:
+
+    clamp(15px,2vw,24px);
 
     letter-spacing:4px;
 
@@ -331,8 +381,42 @@ section{
 
 
 /* ==========================================
-   BOTÓN SCROLL
+   PLAYER INICIO
 ========================================== */
+
+
+.playerInicio{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-top:50px;
+
+}
+
+
+.playerInicio .reproductor{
+
+    width:420px;
+
+    max-width:90vw;
+
+}
+
+
+.playerInicio audio{
+
+    width:100%;
+
+}
+
+
+
+/* ==========================================
+   BOTON SCROLL
+========================================== */
+
 
 .scrollIndicator{
 
@@ -354,11 +438,12 @@ section{
 
     cursor:pointer;
 
-    transition:.35s;
+    transition:.35s ease;
 
     animation:bounce 2.2s infinite;
 
 }
+
 
 .scrollIndicator:hover{
 
@@ -372,36 +457,46 @@ section{
 
     0 0 40px rgba(123,24,56,.45);
 
-    transform:scale(1.08);
-
 }
 
 
 
 /* ==========================================
-   SECCIÓN BANDA
+   SECCION BANDA
 ========================================== */
+
 
 .about{
 
     background:
+
     linear-gradient(
+
         #040404,
+
         #000
+
     );
 
     padding:
+
     clamp(80px,8vw,120px)
+
     clamp(20px,8vw,120px);
 
     text-align:center;
 
 }
+
+
+
 .sectionTitle{
 
     margin-top:20px;
 
-    font-size:clamp(34px,5vw,60px);
+    font-size:
+
+    clamp(34px,5vw,60px);
 
     letter-spacing:8px;
 
@@ -409,9 +504,12 @@ section{
 
 }
 
+
+
 /* ==========================================
-   GRID DE MIEMBROS
+   GRID MIEMBROS
 ========================================== */
+
 
 .membersGrid{
 
@@ -428,29 +526,22 @@ section{
     width:100%;
 
 }
-.memberCard{
-
-    flex:1;
-
-    min-width:0;
-
-    max-width:21.5%;
-
-}
 
 
-
-/* ==========================================
-   TARJETAS MIEMBROS
-========================================== */
 
 .memberCard{
 
     position:relative;
 
+    flex:1;
+
+    max-width:21.5%;
+
+    min-width:0;
+
     aspect-ratio:3/4;
 
-     overflow:visible;
+    overflow:hidden;
 
     border-radius:12px;
 
@@ -467,18 +558,16 @@ section{
 }
 
 
-
 .memberCard:hover{
 
-    transform:
-
-    translateY(-12px);
+    transform:translateY(-12px);
 
 }
 
+/* ==========================================
+   IMAGEN MIEMBROS
+========================================== */
 
-
-/* FOTO */
 
 .memberCard img{
 
@@ -518,7 +607,10 @@ section{
 
 
 
-/* OSCURECIDO */
+/* ==========================================
+   CAPA OSCURA
+========================================== */
+
 
 .memberCard::before{
 
@@ -534,7 +626,7 @@ section{
 
         transparent 20%,
 
-        rgba(0,0,0,.25) 55%,
+        rgba(0,0,0,.35) 55%,
 
         rgba(0,0,0,.95) 100%
 
@@ -546,7 +638,10 @@ section{
 
 
 
-/* DESTELLO BORGOÑA */
+/* ==========================================
+   DESTELLO BORGOÑA
+========================================== */
+
 
 .memberCard::after{
 
@@ -595,8 +690,9 @@ section{
 
 
 /* ==========================================
-   INFORMACIÓN SOBRE LA FOTO
+   INFORMACION MIEMBROS
 ========================================== */
+
 
 .memberInfo{
 
@@ -642,12 +738,6 @@ section{
 
     margin-bottom:10px;
 
-    color:#fff;
-
-    text-shadow:
-
-    0 0 10px #000;
-
 }
 
 
@@ -680,54 +770,14 @@ section{
 
     line-height:1.7;
 
-    text-shadow:
-
-    0 0 8px rgba(0,0,0,.8);
-
 }
 
 
 
 /* ==========================================
-   EFECTO LUZ
+   PLACEHOLDER SECCIONES
 ========================================== */
 
-.memberCard:hover{
-
-    box-shadow:
-
-    0 0 25px rgba(128,0,32,.45),
-
-    0 0 60px rgba(128,0,32,.25),
-
-    0 15px 40px rgba(0,0,0,.6);
-
-}
-
-
-
-/* ==========================================
-   EFECTO SUAVE
-========================================== */
-
-.memberCard img,
-
-.memberInfo,
-
-.memberCard::after{
-
-    will-change:
-
-    transform,
-
-    opacity;
-
-}
-
-
-/* ==========================================
-   SECCIONES FUTURAS
-========================================== */
 
 .placeholder{
 
@@ -735,40 +785,113 @@ section{
 
     display:flex;
 
-    flex-direction:column;
-
     justify-content:center;
 
     align-items:center;
 
-    text-align:center;
+    flex-direction:column;
 
-    background:
-        linear-gradient(
-            #050505,
-            #111
-        );
+    text-align:center;
 
     padding:80px 20px;
 
+    background:
+
+    linear-gradient(
+
+        #050505,
+
+        #111
+
+    );
+
 }
+
+
+
 .placeholder h2{
 
-    font-size:clamp(36px,5vw,60px);
+    font-size:
 
-    letter-spacing:6px;
+    clamp(36px,5vw,60px);
 
     font-weight:900;
 
-    color:white;
-
-    text-transform:uppercase;
+    letter-spacing:6px;
 
 }
+
+
+
+/* ==========================================
+   GALERIA
+========================================== */
+
+
+.galeria{
+
+    background:#0b0b0b;
+
+    padding:120px 40px;
+
+    text-align:center;
+
+}
+
+
+
+.galeriaGrid{
+
+    margin:60px auto 0;
+
+    max-width:1400px;
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:25px;
+
+}
+
+
+
+.galeriaGrid img{
+
+    width:100%;
+
+    aspect-ratio:4/3;
+
+    object-fit:cover;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.35s ease;
+
+}
+
+
+
+.galeriaGrid img:hover{
+
+    transform:scale(1.04);
+
+    box-shadow:
+
+    0 0 25px rgba(90,15,24,.5);
+
+}
+
+
 
 /* ==========================================
    ANIMACIONES
 ========================================== */
+
 
 @keyframes fadeIn{
 
@@ -796,7 +919,7 @@ section{
 
     0%{
 
-        transform:translateY(0px);
+        transform:translateY(0);
 
     }
 
@@ -808,7 +931,7 @@ section{
 
     100%{
 
-        transform:translateY(0px);
+        transform:translateY(0);
 
     }
 
@@ -841,10 +964,12 @@ section{
 
 
 /* ==========================================
-   TABLETS
+   TABLET
 ========================================== */
 
-@media (max-width:1100px){
+
+@media(max-width:1100px){
+
 
     .navbar{
 
@@ -852,209 +977,44 @@ section{
 
     }
 
-    .membersGrid{
-
-        grid-template-columns:
-        repeat(2,1fr);
-
-    }
-
-}
-
-
-
-/* ==========================================
-   MÓVILES
-========================================== */
-
-@media (max-width:900px){
-
-    .navbar{
-
-        height:80px;
-
-        padding:0 20px;
-
-    }
-
-    .navbarLogo{
-
-        width:70px;
-
-    }
-
-    .menuButton{
-
-        display:block;
-
-        z-index:1001;
-
-    }
-
-    .menu{
-
-        position:absolute;
-
-        top:80px;
-
-        left:0;
-
-        width:100%;
-
-        background:rgba(0,0,0,.96);
-
-        backdrop-filter:blur(12px);
-
-        flex-direction:column;
-
-        align-items:center;
-
-        gap:22px;
-
-        padding:30px 0;
-
-        transform:translateY(-200%);
-
-        transition:.35s;
-
-    }
-
-    .menuActive{
-
-        transform:translateY(0);
-
-    }
-
-    .menu button{
-
-        font-size:17px;
-
-    }
-
-    .hero{
-
-        min-height:100svh;
-
-    }
-
-    .heroLogo{
-
-        width:200px;
-
-    }
-
-    .heroContent h1{
-
-        font-size:42px;
-
-        letter-spacing:4px;
-
-    }
-
-    .heroContent p{
-
-        font-size:16px;
-
-        letter-spacing:2px;
-
-    }
-
-    .scrollIndicator{
-
-        width:52px;
-
-        height:52px;
-
-        font-size:26px;
-
-    }
-
-    .about{
-
-        padding:70px 20px;
-
-    }
-
-   .membersGrid{
-
-    display:flex;
-
-    overflow-x:auto;
-
-    scroll-snap-type:x mandatory;
-
-    gap:20px;
-
-    padding-bottom:20px;
-
-}
-
-.memberCard{
-
-    flex:0 0 85%;
-
-    max-width:85%;
-
-    scroll-snap-align:center;
-
-}
 
     .memberCard{
 
-        aspect-ratio:3/4;
+        max-width:48%;
 
     }
 
-    .memberInfo{
 
-        transform:translateY(0);
+    .membersGrid{
 
-        opacity:1;
+        flex-wrap:wrap;
 
-        background:
+        justify-content:center;
 
-        linear-gradient(
-
-            transparent,
-
-            rgba(0,0,0,.88)
-
-        );
+        gap:30px;
 
     }
 
-.socialMenu{
-
-    margin-left:0;
-
-    margin-top:10px;
-
-    justify-content:center;
-
 }
 
-}
+
 
 /* ==========================================
-   RESPONSIVE PRO - HOME
+   MOVIL
 ========================================== */
 
-@media (max-width:900px){
 
-    /* NAVBAR */
+@media(max-width:900px){
+
 
     .navbar{
 
         height:72px;
+
         padding:0 18px;
 
     }
 
-    .navbarLeft{
-
-        gap:15px;
-
-    }
 
     .navbarLogo{
 
@@ -1062,36 +1022,44 @@ section{
 
     }
 
+
+    .navbarLeft{
+
+        gap:15px;
+
+    }
+
+
     .menuButton{
 
         display:block;
-
-        font-size:34px;
 
         z-index:2000;
 
     }
 
-    /* MENÚ */
 
     .menu{
 
         position:fixed;
 
         top:72px;
+
         left:0;
 
         width:100%;
+
         height:calc(100vh - 72px);
 
-        background:rgba(0,0,0,.97);
+        background:
 
-        backdrop-filter:blur(16px);
+        rgba(0,0,0,.97);
 
-        display:flex;
+        backdrop-filter:blur(15px);
+
         flex-direction:column;
+
         justify-content:flex-start;
-        align-items:center;
 
         padding-top:50px;
 
@@ -1101,17 +1069,19 @@ section{
 
         transition:.35s ease;
 
-        overflow-y:auto;
-
         z-index:1500;
 
     }
+
+
 
     .menuActive{
 
         transform:translateX(0);
 
     }
+
+
 
     .menu button{
 
@@ -1121,285 +1091,50 @@ section{
 
     }
 
+
+
     .socialMenu{
 
-        margin-top:25px;
-
-        gap:22px;
+        margin:25px 0 0;
 
     }
 
-    .socialMenu svg{
 
-        font-size:28px;
 
-    }
+   .hero{
 
-    /* HERO */
+    min-height:100svh;
 
-    .hero{
+    padding:90px 20px 40px;
 
-        min-height:100svh;
+}
 
-        padding:90px 20px 40px;
 
-    }
+.heroLogo{
 
-    .heroContent{
+    width:200px;
 
-        width:100%;
+}
 
-        max-width:520px;
 
-        margin:auto;
+.heroContent h1{
 
-    }
+    font-size:38px;
 
-    .heroContent h1{
+    letter-spacing:4px;
 
-        font-size:clamp(40px,10vw,58px);
+}
 
-        line-height:1.05;
-
-        letter-spacing:3px;
-
-    }
 
     .heroContent p{
 
-        margin-top:18px;
-
-        font-size:16px;
+        font-size:15px;
 
         letter-spacing:2px;
 
     }
 
-    .playerInicio{
 
-        margin-top:35px;
-
-    }
-
-    .playerInicio .reproductor{
-
-        width:100%;
-
-        max-width:430px;
-
-    }
-
-    .scrollIndicator{
-
-        margin-top:35px;
-
-    }
-
-}
-
-/* ==========================================
-   PANTALLAS GRANDES
-========================================== */
-
-@media (min-width:1600px){
-
-    .heroContent{
-
-        max-width:1400px;
-
-    }
-
-    .membersGrid{
-
-        grid-template-columns:
-        repeat(4,1fr);
-
-        gap:50px;
-
-    }
-
-}
-
-
-
-/* ==========================================
-   AJUSTES GENERALES
-========================================== */
-
-button{
-
-    font-family:inherit;
-
-}
-
-a{
-
-    color:inherit;
-
-    text-decoration:none;
-
-}
-
-html,
-
-body,
-
-#root{
-
-    width:100%;
-
-    min-height:100%;
-
-}
-
-
-
-/* ==========================================
-   SCROLLBAR
-========================================== */
-
-::-webkit-scrollbar{
-
-    width:10px;
-
-}
-
-::-webkit-scrollbar-track{
-
-    background:#050505;
-
-}
-
-::-webkit-scrollbar-thumb{
-
-    background:#5b142c;
-
-    border-radius:20px;
-
-}
-
-::-webkit-scrollbar-thumb:hover{
-
-    background:#800020;
-
-}
-/* ==========================================
-   CONTENEDOR DE LA IMAGEN
-========================================== */
-
-
-.memberImage{
-
-    position:relative;
-
-    overflow:hidden;
-
-    border-radius:12px;
-
-    z-index:2;
-
-}
-.playerInicio{
-
-    display:flex;
-
-    justify-content:center;
-
-    margin-top:50px;
-
-}
-
-.playerInicio .reproductor{
-
-    width:420px;
-
-    max-width:90vw;
-
-}
-
-.playerInicio audio{
-
-    width:100%;
-
-}
-
-/* =================================
-   GALERIA
-================================= */
-
-.galeria{
-
-    background:#0b0b0b;
-
-    padding:120px 40px;
-
-    text-align:center;
-}
-
-.galeriaGrid{
-
-    margin-top:60px;
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-
-    gap:25px;
-
-    max-width:1400px;
-
-    margin-left:auto;
-
-    margin-right:auto;
-}
-
-.galeriaGrid img{
-
-    width:100%;
-
-    aspect-ratio:4/3;
-
-    object-fit:cover;
-
-    border-radius:10px;
-
-    cursor:pointer;
-
-    transition:.35s;
-}
-
-.galeriaGrid img:hover{
-
-    transform:scale(1.04);
-
-    box-shadow:0 0 25px rgba(90,15,24,.5);
-}
-section{
-    scroll-margin-top:10px;
-}
-
-
-/* ==========================================
-   RESPONSIVE PRO - LA BANDA
-========================================== */
-
-@media (max-width:900px){
-
-    .about{
-
-        padding:80px 18px;
-
-    }
-
-    .sectionTitle{
-
-        font-size:38px;
-
-        letter-spacing:5px;
-
-        margin-bottom:35px;
-
-    }
 
     .membersGrid{
 
@@ -1409,19 +1144,15 @@ section{
 
         overflow-x:auto;
 
-        overflow-y:hidden;
+        scroll-snap-type:x mandatory;
 
         gap:22px;
 
-        padding:10px 8px 25px;
-
-        scroll-snap-type:x mandatory;
-
-        scroll-behavior:smooth;
-
-        -webkit-overflow-scrolling:touch;
+        padding-bottom:25px;
 
     }
+
+
 
     .membersGrid::-webkit-scrollbar{
 
@@ -1429,35 +1160,21 @@ section{
 
     }
 
-    .membersGrid{
 
-        scrollbar-width:none;
-
-    }
 
     .memberCard{
 
-        flex:0 0 82%;
+        flex:
+
+        0 0 82%;
 
         max-width:82%;
-
-        min-width:82%;
 
         scroll-snap-align:center;
 
     }
 
-    .memberImage{
 
-        border-radius:12px;
-
-    }
-
-    .memberCard img{
-
-        object-position:center top;
-
-    }
 
     .memberInfo{
 
@@ -1467,119 +1184,35 @@ section{
 
         padding:22px;
 
-        background:linear-gradient(
+        background:
+
+        linear-gradient(
+
             transparent,
+
             rgba(0,0,0,.90)
+
         );
 
     }
+
+
 
     .memberInfo h3{
 
         font-size:26px;
 
-        letter-spacing:3px;
-
     }
 
-    .memberInfo span{
 
-        font-size:13px;
-
-        letter-spacing:3px;
-
-    }
 
     .memberInfo p{
 
         font-size:14px;
 
-        line-height:1.5;
-
     }
 
-}
 
-/* ==========================================
-   RESPONSIVE PRO - AJUSTES GENERALES
-========================================== */
-
-@media (max-width:900px){
-
-    html{
-
-        -webkit-text-size-adjust:100%;
-
-    }
-
-    body{
-
-        overflow-x:hidden;
-
-    }
-
-    section{
-
-        scroll-margin-top:72px;
-
-    }
-
-    /* HERO */
-
-    .hero{
-
-        background-position:center center;
-
-        background-attachment:scroll;
-
-    }
-
-    .heroOverlay{
-
-        background:linear-gradient(
-            rgba(0,0,0,.45),
-            rgba(0,0,0,.88)
-        );
-
-    }
-
-    .heroContent{
-
-        padding:0 10px;
-
-    }
-
-    .heroContent h1{
-
-        text-wrap:balance;
-
-    }
-
-    .heroContent p{
-
-        max-width:320px;
-
-        margin:20px auto 0;
-
-    }
-
-    /* REPRODUCTOR */
-
-    .playerInicio{
-
-        width:100%;
-
-        padding:0 10px;
-
-    }
-
-    .playerInicio .reproductor{
-
-        width:100%;
-
-    }
-
-    /* BOTÓN SCROLL */
 
     .scrollIndicator{
 
@@ -1591,188 +1224,48 @@ section{
 
     }
 
-    /* IMÁGENES */
-
-    img{
-
-        user-select:none;
-
-        -webkit-user-drag:none;
-
-    }
-
-    /* BOTONES */
-
-    button{
-
-        -webkit-tap-highlight-color:transparent;
-
-    }
-
-    .menu button{
-
-        min-height:48px;
-
-        min-width:180px;
-
-    }
 
 }
+
+
 
 
 /* ==========================================
-   RESPONSIVE PRO - OPTIMIZACIÓN FINAL
+   MOVILES PEQUEÑOS
 ========================================== */
 
-@media (max-width:900px){
 
-    /* ==========================
-       RENDIMIENTO
-    ========================== */
+@media(max-width:430px){
 
-    *{
 
-        -webkit-tap-highlight-color:transparent;
+    .navbarLogo{
+
+        width:120px;
 
     }
 
-    body{
 
-        overscroll-behavior-y:none;
+    .heroContent h1{
 
-    }
+        font-size:32px;
 
-    .hero,
-    .memberCard,
-    .navbar{
-
-        transform:translateZ(0);
-
-        backface-visibility:hidden;
+        letter-spacing:2px;
 
     }
 
-    /* ==========================
-       ANIMACIONES MÁS SUAVES
-    ========================== */
+
+    .heroContent p{
+
+        font-size:14px;
+
+    }
+
 
     .memberCard{
 
-        transition:
-        transform .35s ease,
-        box-shadow .35s ease;
+        flex-basis:88%;
 
-    }
-
-    .memberCard img{
-
-        transition:
-        transform .45s ease,
-        filter .45s ease;
-
-    }
-
-    .menu{
-
-        transition:
-        transform .30s ease;
-
-    }
-
-    .scrollIndicator{
-
-        transition:
-        .30s ease;
-
-    }
-
-    /* ==========================
-       SCROLL HORIZONTAL
-    ========================== */
-
-    .membersGrid{
-
-        scroll-padding-left:18px;
-
-        scroll-padding-right:18px;
-
-    }
-
-    /* ==========================
-       MÓVILES MUY PEQUEÑOS
-    ========================== */
-
-    @media (max-width:430px){
-
-        .navbar{
-
-            padding:0 15px;
-
-        }
-
-        .navbarLogo{
-
-            width:120px;
-
-        }
-
-        .heroContent h1{
-
-            font-size:34px;
-
-            letter-spacing:2px;
-
-        }
-
-        .heroContent p{
-
-            font-size:15px;
-
-            letter-spacing:1px;
-
-        }
-
-        .playerInicio{
-
-            margin-top:28px;
-
-        }
-
-        .scrollIndicator{
-
-            margin-top:28px;
-
-        }
-
-        .memberCard{
-
-            flex:0 0 88%;
-
-            min-width:88%;
-
-            max-width:88%;
-
-        }
-
-    }
-
-    /* ==========================
-       TABLETS
-    ========================== */
-
-    @media (min-width:901px) and (max-width:1200px){
-
-        .navbarLogo{
-
-            width:180px;
-
-        }
-
-        .membersGrid{
-
-            gap:20px;
-
-        }
+        max-width:88%;
 
     }
 
@@ -1780,13 +1273,10 @@ section{
 
 
 
-/* ===================================
+/* ==========================================
    FONDO ESPECIAL LOGO
-=================================== */
+========================================== */
 
-/* ===================================
-   FONDO ESPECIAL AL PULSAR LOGO
-=================================== */
 
 .fondoEspecial{
 
@@ -1794,7 +1284,13 @@ section{
 
     inset:0;
 
-    background:rgba(0,0,0,.85);
+    width:100%;
+
+    height:100vh;
+
+    background:#000;
+
+    z-index:9999;
 
     display:flex;
 
@@ -1802,16 +1298,10 @@ section{
 
     align-items:center;
 
-    z-index:9999;
-
 }
 
 
 .fondoEspecial img{
-
-    width:auto;
-
-    height:auto;
 
     max-width:70vw;
 
@@ -1819,12 +1309,20 @@ section{
 
     object-fit:contain;
 
-    border-radius:10px;
+}
 
-    box-shadow:
-        0 0 50px rgba(0,0,0,.8);
+
+
+.fondoEspecial video{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
 
 }
+
 
 
 .cerrarFondo{
@@ -1845,18 +1343,231 @@ section{
 
     cursor:pointer;
 
+     position:absolute;
+
+    z-index:10000;
+
 }
 
 
-@keyframes aparecerFondo{
 
-    from{
-        opacity:0;
-    }
+/* ==========================================
+   SCROLLBAR
+========================================== */
 
-    to{
-        opacity:1;
-    }
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+
+::-webkit-scrollbar-track{
+
+    background:#050505;
+
+}
+
+
+::-webkit-scrollbar-thumb{
+
+    background:#5b142c;
+
+    border-radius:20px;
+
+}
+
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#800020;
+
+}
+
+
+/* ==========================================
+   CORRECCIÓN CENTRADO HERO
+========================================== */
+
+.hero{
+
+    overflow:hidden;
+
+}
+
+
+.heroContent{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin:0 auto;
+
+    left:0;
+
+    right:0;
+
+}
+
+
+
+.heroLogo{
+
+    margin-left:auto;
+
+    margin-right:auto;
+
+}
+
+
+
+.heroContent h1,
+.heroContent p{
+
+    width:100%;
+
+    text-align:center;
+
+}
+
+
+
+.playerInicio{
+
+    width:100%;
+
+    justify-content:center;
+
+}
+
+html,
+body{
+
+    width:100%;
+
+    overflow-x:hidden;
+
+}
+
+
+.home{
+
+    width:100%;
+
+    overflow-x:hidden;
+
+}
+/* ==========================================
+   FIX DESPLAZAMIENTO HORIZONTAL
+========================================== */
+
+html,
+body,
+#root,
+.home{
+
+    width:100%;
+
+    max-width:100%;
+
+    overflow-x:hidden;
+
+}
+
+
+.hero{
+
+    width:100%;
+
+    max-width:100%;
+
+    overflow:hidden;
+
+}
+
+
+.heroContent{
+
+    width:100%;
+
+    max-width:1100px;
+
+    margin-left:auto;
+
+    margin-right:auto;
+
+}
+
+
+.navbar{
+
+    width:100%;
+
+    max-width:100%;
+
+}
+
+
+img,
+video{
+
+    max-width:100%;
+
+}
+
+.navbarLeft{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:35px;
+
+}
+
+.menu{
+
+    flex-wrap:wrap;
+
+}
+
+/* ==========================================
+   FIX FINAL DESPLAZAMIENTO IZQUIERDA
+========================================== */
+
+html,
+body,
+#root,
+.home{
+
+    overflow-x:hidden;
+    width:100%;
+    max-width:100vw;
+
+}
+
+
+.hero,
+.heroContent,
+.about,
+section{
+
+    max-width:100vw;
+
+}
+
+
+.navbar{
+
+    left:0;
+    right:0;
+    width:100%;
 
 }
 
@@ -1866,46 +1577,7 @@ section{
     position:fixed;
     top:0;
     left:0;
-
     width:100vw;
     height:100vh;
-
-    background:#000;
-
-    z-index:9999;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-}
-
-
-.fondoEspecial video{
-
-    width:100%;
-    height:100%;
-
-    object-fit:contain;
-
-}
-
-.cerrarFondo{
-
-    position:absolute;
-
-    top:30px;
-
-    right:40px;
-
-    background:none;
-
-    border:none;
-
-    color:white;
-
-    font-size:45px;
-
-    cursor:pointer;
 
 }

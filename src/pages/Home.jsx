@@ -11,7 +11,7 @@ import miembro4 from "../assets/miembro4.jpg";
 import Contacto from "../components/Contacto";
 import Discografia from "../components/Discografia";
 import Reproductor from "../components/Reproductor";
-import entradaConcierto from "../assets/entrada-concierto.png";
+
 import Bolos from "../components/Bolos";
 import Galeria from "../components/Galeria";
 import videoLogo from "../assets/videos/Video-logo-web.mp4";
@@ -50,40 +50,14 @@ export default function Home() {
     );
 
 
-    return ()=>{
+   return ()=>{
 
-      window.removeEventListener(
+    window.removeEventListener(
         "scroll",
         handleScroll
-      );
+    );
 
-{mostrarFondo && (
-
-    <div
-        className="fondoEspecial"
-        onClick={() => setMostrarFondo(false)}
-    >
-
-        <img
-            src={fondoCarrer}
-            alt="Carrer Merceria"
-        />
-
-        <button
-            className="cerrarFondo"
-            onClick={() => setMostrarFondo(false)}
-        >
-            ✕
-        </button>
-
-    </div>
-
-)}
-
-
-
-    };
-
+};
 
   },[]);
 
