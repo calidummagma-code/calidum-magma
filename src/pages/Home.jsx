@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 
 import fotoBanda from "../assets/home-bg.jpg";
 import logo from "../assets/logo-calidum.png";
-
 import miembro1 from "../assets/miembro1.jpg";
 import miembro2 from "../assets/miembro2.jpg";
 import miembro3 from "../assets/miembro3.jpg";
@@ -15,6 +14,11 @@ import Reproductor from "../components/Reproductor";
 import entradaConcierto from "../assets/entrada-concierto.png";
 import Bolos from "../components/Bolos";
 import Galeria from "../components/Galeria";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faInstagram,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
 
 
 
@@ -139,18 +143,47 @@ backgroundImage:`url(${fotoBanda})`
       <button onClick={()=>scrollToSection("conciertos")}>BOLOS</button>
       <button onClick={()=>scrollToSection("galeria")}>GALERIA</button>
      
-      <button onClick={()=>scrollToSection("contacte")}>CONTACTE</button>
+     <button onClick={()=>scrollToSection("contacte")}>
+  CONTACTE
+</button>
 
-    </nav>
 
-  </div>
+<div className="socialMenu">
 
-  <button
-    className="menuButton"
-    onClick={()=>setMenuOpen(!menuOpen)}
+  <a
+    href="https://www.instagram.com/calidum_magma/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Instagram"
   >
-    ☰
-  </button>
+    <FontAwesomeIcon icon={faInstagram} />
+  </a>
+
+  
+
+  <a
+    href="https://www.youtube.com/@CalidumMagma"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="YouTube"
+  >
+    <FontAwesomeIcon icon={faYoutube} />
+  </a>
+
+</div>
+
+
+
+   </nav>
+
+</div>
+
+<button
+  className="menuButton"
+  onClick={() => setMenuOpen(!menuOpen)}
+>
+  ☰
+</button>
 
 </header>
 
