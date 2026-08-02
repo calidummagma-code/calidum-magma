@@ -487,24 +487,11 @@ section{
 
 .about{
 
-    background:
+    background: linear-gradient(#040404, #000);
 
-    linear-gradient(
+    padding: 0 clamp(20px,8vw,120px) clamp(80px,8vw,120px);
 
-        #040404,
-
-        #000
-
-    );
-* ==========================================
-SUBIR EL PADDING DE LA BANDA AHORA ESTA A OPX
-========================================== */
-     padding:
-    0px
-    clamp(20px,8vw,120px)
-    clamp(80px,8vw,120px);
-
-    text-align:center;
+    text-align: center;
 
 }
 
