@@ -3,6 +3,7 @@ import "./EPK.css";
 import logo from "../assets/logo-calidum.png";
 import portada from "../assets/epk/portada-epk.png";
 import hebdomana from "../assets/epk/hebdomana.jpg";
+import { Link } from "react-router-dom";
 
 
 
@@ -120,14 +121,12 @@ export default function EPK(){
 
 
 
-        <a
-            href="/banda"
-            className="veureMes"
-        >
-
-            Veure més →
-
-        </a>
+  <Link
+    to="/banda"
+    className="veureMes"
+>
+    Veure més →
+</Link>
 
 
     </div>
@@ -225,12 +224,12 @@ export default function EPK(){
 
                 </div>
 
-<a
-    href="/biografia"
+<Link
+    to="/biografia"
     className="veureMes"
 >
     VEURE MÉS →
-</a>
+</Link>
             </section>
 
 
@@ -387,12 +386,12 @@ export default function EPK(){
 
     </p>
 
-    <a
-        href="/music"
-        className="veureMes"
-    >
-        VEURE MÉS →
-    </a>
+    <Link
+    to="/music"
+    className="veureMes"
+>
+    VEURE MÉS →
+</Link>
 
 </div>
 
