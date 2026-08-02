@@ -4,7 +4,7 @@
 
 .discografia{
     min-height:100vh;
-    padding:70px clamp(20px,8vw,120px) 100px;
+    padding:00px clamp(20px,8vw,120px) 100px;
     background:linear-gradient(#050505,#000);
     text-align:center;
 }

@@ -66,7 +66,9 @@ section{
 
     width:100%;
 
-    min-height:100vh;
+    height:80vh;
+
+    min-height:750px;
 
     display:flex;
 
@@ -81,7 +83,6 @@ section{
     background-repeat:no-repeat;
 
 }
-
 
 /* ==========================================
    HERO OVERLAY FIX
@@ -391,7 +392,7 @@ section{
 
     justify-content:center;
 
-    margin-top:50px;
+    margin-top:20px;
 
 }
 
@@ -420,7 +421,7 @@ section{
 
 .scrollIndicator{
 
-    margin:50px auto 0;
+    margin:20px auto 0;
 
     width:60px;
 
@@ -459,7 +460,25 @@ section{
 
 }
 
+/* ==========================================
+   TEXTO DEBAJO DE LA FLECHA
+========================================== */
 
+.heroFirma{
+
+    margin-top:20px;
+
+    color:#8b1e3f !important;
+
+    font-size:17px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    text-align:center;
+
+}
 
 /* ==========================================
    SECCION BANDA
@@ -477,12 +496,13 @@ section{
         #000
 
     );
-
-    padding:
-
-    clamp(80px,8vw,120px)
-
-    clamp(20px,8vw,120px);
+* ==========================================
+SUBIR EL PADDING DE LA BANDA AHORA ESTA A OPX
+========================================== */
+     padding:
+    0px
+    clamp(20px,8vw,120px)
+    clamp(80px,8vw,120px);
 
     text-align:center;
 
@@ -492,11 +512,11 @@ section{
 
 .sectionTitle{
 
-    margin-top:20px;
+    margin-top:0;
 
-    font-size:
+    margin-bottom:40px;
 
-    clamp(34px,5vw,60px);
+    font-size:clamp(34px,5vw,60px);
 
     letter-spacing:8px;
 
@@ -504,6 +524,13 @@ section{
 
 }
 
+/* SOLO PARA LA SECCIÓN BANDA */
+
+.about .sectionTitle{
+
+    margin-top:90px;
+
+}
 
 
 /* ==========================================
@@ -515,11 +542,11 @@ section{
 
     display:flex;
 
-    justify-content:space-between;
+  justify-content:center;
 
     align-items:flex-start;
 
-    gap:2%;
+    gap:8px;
 
     margin-top:40px;
 
@@ -535,7 +562,7 @@ section{
 
     flex:1;
 
-    max-width:21.5%;
+    max-width:20%;
 
     min-width:0;
 
@@ -1579,5 +1606,209 @@ section{
     left:0;
     width:100vw;
     height:100vh;
+
+}
+
+
+/* ==========================================
+   MENU HAMBURGUESA
+========================================== */
+
+.hamburguesa{
+
+    width:46px;
+    height:46px;
+
+    background:none;
+    border:none;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:7px;
+
+    cursor:pointer;
+
+    z-index:10001;
+
+}
+
+.hamburguesa span{
+
+    width:34px;
+    height:3px;
+
+    background:white;
+
+    border-radius:20px;
+
+    transition:.35s;
+
+}
+
+.hamburguesa.abierta span:nth-child(1){
+
+    transform:
+    rotate(45deg)
+    translateY(7px);
+
+}
+
+.hamburguesa.abierta span:nth-child(2){
+
+    opacity:0;
+
+}
+
+.hamburguesa.abierta span:nth-child(3){
+
+    transform:
+    rotate(-45deg)
+    translateY(-7px);
+
+}
+
+
+/* ==========================================
+   MENU LATERAL
+========================================== */
+
+.menuLateral{
+
+    position:fixed;
+
+    top:0;
+    right:-340px;
+
+    width:320px;
+    height:100vh;
+
+    background:rgba(0,0,0,.97);
+
+    backdrop-filter:blur(18px);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    gap:28px;
+
+    transition:.45s;
+
+    z-index:10000;
+
+}
+
+.menuVisible{
+
+    right:0;
+
+}
+
+.menuLateral button{
+
+    background:none;
+    border:none;
+
+    color:white;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    letter-spacing:4px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.menuLateral button:hover{
+
+    color:#8b1e3f;
+
+    transform:translateX(-8px);
+
+}
+
+
+/* BOTON EPK MENU LATERAL */
+
+.menuLateral .epkMenu{
+
+    background:none;
+    border:none;
+
+    color:#8b1e3f;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    letter-spacing:4px;
+
+    text-decoration:none;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+.menuLateral .epkMenu:hover{
+
+    color:#b52b55;
+
+    transform:translateX(-8px);
+
+}
+
+
+/* ==========================================
+   REDES MENU
+========================================== */
+
+.socialMenuLateral{
+
+    display:flex;
+
+    gap:28px;
+
+    margin-top:40px;
+
+    font-size:30px;
+
+}
+
+.socialMenuLateral a{
+
+    transition:.3s;
+
+}
+
+.socialMenuLateral a:hover{
+
+    color:#8b1e3f;
+
+    transform:scale(1.25);
+
+}
+
+.epkMenu {
+
+    display:block;
+
+    color:white;
+    text-decoration:none;
+
+    font-size:inherit;
+    font-weight:inherit;
+
+    padding:10px 0;
+
+    cursor:pointer;
 
 }
