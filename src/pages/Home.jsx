@@ -124,76 +124,81 @@ backgroundImage:`url(${fotoBanda})`
 
 <header className={scrolled ? "navbar navbarScrolled" : "navbar"}>
 
-  <div className="navbarLeft">
+    <img
+        src={logo}
+        alt="Calidum Magma"
+        className="navbarLogo"
+        onClick={() => setMostrarFondo(true)}
+    />
 
-   
-  <img
-    src={logo}
-    alt="Calidum Magma"
-    className="navbarLogo"
-    onClick={() => setMostrarFondo(true)}
-/>
-
-
-    <nav
-      className={
-        menuOpen
-          ? "menu menuActive"
-          : "menu"
-      }
+    <button
+        className={`hamburguesa ${menuOpen ? "abierta" : ""}`}
+        onClick={() => setMenuOpen(!menuOpen)}
     >
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 
-      <button onClick={()=>scrollToSection("inicio")}>INICI</button>
-      <button onClick={()=>scrollToSection("banda")}>BANDA</button>
-      <button onClick={()=>scrollToSection("discografia")}>DISCOGRAFIA</button>
-      <button onClick={()=>scrollToSection("conciertos")}>BOLOS</button>
-      <button onClick={()=>scrollToSection("galeria")}>GALERIA</button>
-     
-     <button onClick={()=>scrollToSection("contacte")}>
-  CONTACTE
-</button>
+    <nav className={`menuLateral ${menuOpen ? "menuVisible" : ""}`}>
 
-
-<div className="socialMenu">
-
-  <a
-    href="https://www.instagram.com/calidum_magma/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Instagram"
-  >
-    <FontAwesomeIcon icon={faInstagram} />
-  </a>
-
-  
-
-  <a
-    href="https://www.youtube.com/@CalidumMagma"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="YouTube"
-  >
-    <FontAwesomeIcon icon={faYoutube} />
-  </a>
-
-</div>
-
-
-
-   </nav>
-
-</div>
-
+        <button onClick={() => scrollToSection("inicio")}>INICI</button>
+        <button onClick={() => scrollToSection("banda")}>BANDA</button>
+        <button onClick={() => scrollToSection("discografia")}>DISCOGRAFIA</button>
+        <button onClick={() => scrollToSection("conciertos")}>BOLOS</button>
+        <button onClick={() => scrollToSection("galeria")}>GALERIA</button>
+        <button onClick={() => scrollToSection("contacte")}>CONTACTE</button>
 <button
-  className="menuButton"
-  onClick={() => setMenuOpen(!menuOpen)}
+    onClick={() => {
+
+        const clave = prompt(
+            "Contingut exclusiu per a contractació i premsa.\n\nIntrodueix la clau d'accés:"
+        );
+
+        if (clave && clave.toLowerCase() === "cm") {
+
+            window.location.href = "/epk";
+
+        } else if (clave !== null) {
+
+            alert("Clau incorrecta.");
+
+        }
+
+        setMenuOpen(false);
+
+    }}
 >
-  ☰
+    EPK
 </button>
+
+
+
+
+
+        <div className="socialMenuLateral">
+
+            <a
+                href="https://www.instagram.com/calidum_magma/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <FontAwesomeIcon icon={faInstagram}/>
+            </a>
+
+            <a
+                href="https://www.youtube.com/@CalidumMagma"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <FontAwesomeIcon icon={faYoutube}/>
+            </a>
+
+        </div>
+
+    </nav>
 
 </header>
-
-
 
 
 
@@ -236,7 +241,9 @@ onClick={()=>scrollToSection("banda")}
 
 </button>
 
-
+<p className="heroFirma">
+    Rock d'autor · Tarragona · Des de 2024
+</p>
 
 </div>
 
@@ -470,7 +477,6 @@ LA BANDA
 
 
 <Contacto />
-
 
 
 {mostrarFondo && (
