@@ -157,7 +157,7 @@ backgroundImage:`url(${fotoBanda})`
 
         if (clave && clave.toLowerCase() === "cm") {
 
-            window.location.href = "/epk";
+            navigate("/epk");
 
         } else if (clave !== null) {
 
@@ -171,7 +171,6 @@ backgroundImage:`url(${fotoBanda})`
 >
     EPK
 </button>
-
 
 
 
