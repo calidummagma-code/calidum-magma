@@ -12,7 +12,7 @@ import Bio from "./pages/Bio";
 import Music from "./pages/Music";
 import Directe from "./pages/Directe";
 import Admin from "./pages/Admin";
-import News from "./pages/News";
+import News from "./pages/news";
 
 
 
