@@ -105,6 +105,8 @@
 
     padding:40px 30px;
 
+    transform: translateY(-50px);
+
 }
 
 
@@ -149,7 +151,7 @@
 
 .epkSubtitulo{
 
-    margin-top:35px;
+    margin-top:10px;
 
     font-size:14px;
 
@@ -652,7 +654,7 @@
 
     display:inline-block;
 
-    margin-top:35px;
+    margin-top:15px;
 
     color:#2b8cff;
 
@@ -771,5 +773,91 @@
 
     }
 
+
+}
+
+
+.volverWeb{
+
+    position: fixed;
+
+    top: 25px;
+
+    left: 25px;
+
+    z-index: 9999;
+
+}
+
+
+.scrollIndicador{
+    margin-top: 18px;
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,.85);
+    text-transform: uppercase;
+    font-weight: 600;
+    animation: bajar 2s ease-in-out infinite;
+}
+
+@keyframes bajar{
+
+    0%{
+        transform: translateY(0);
+        opacity: .6;
+    }
+
+    50%{
+        transform: translateY(8px);
+        opacity: 1;
+    }
+
+    100%{
+        transform: translateY(0);
+        opacity: .6;
+    }
+
+}
+
+
+.scrollIndicador{
+
+    position:absolute;
+
+    bottom:10px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    z-index:3;
+
+    color:#ffffff;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    animation:bajar 2s ease-in-out infinite;
+
+    pointer-events:none;
+
+}
+
+@keyframes bajar{
+
+    0%,100%{
+        transform:translateX(-50%) translateY(0);
+        opacity:.6;
+    }
+
+    50%{
+        transform:translateX(-50%) translateY(8px);
+        opacity:1;
+    }
 
 }

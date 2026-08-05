@@ -10,6 +10,11 @@ import EPK from "./pages/EPK";
 import Banda from "./pages/Banda";
 import Bio from "./pages/Bio";
 import Music from "./pages/Music";
+import Directe from "./pages/Directe";
+import Admin from "./pages/Admin";
+import News from "./pages/News";
+
+
 
 
 export default function App() {
@@ -30,6 +35,12 @@ export default function App() {
             />
 
             {/* SECCIONES */}
+
+            <Route 
+             path="/news" 
+                element={<News />} 
+            />
+
             <Route
                 path="/discografia"
                 element={<Discografia />}
@@ -50,16 +61,25 @@ export default function App() {
                 element={<Contacto />}
             />
 <Route path="/banda" element={<Banda />} />
-            {/* SI LA RUTA NO EXISTE */}
-            <Route
-                path="*"
-                element={<Home />}
-            />
+           
+           
+           <Route
+    path="/admin"
+    element={<Admin />}
+/>
+           
+           
+           
+           
+        
 <Route
     path="/music"
     element={<Music />}
 />
-
+<Route
+    path="/directe"
+    element={<Directe />}
+/>
 
 
 
@@ -74,11 +94,11 @@ export default function App() {
     element={<EPK />}
 />
 
-<Route
-    path="/music"
-    element={<Music />}
-/>
-
+   {/* SI LA RUTA NO EXISTE */}
+            <Route
+                path="*"
+                element={<Home />}
+            />
 
 
 

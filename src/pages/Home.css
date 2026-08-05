@@ -1665,9 +1665,9 @@ section{
     position:fixed;
 
     top:0;
-    right:-340px;
+    right:-260px;
 
-    width:320px;
+    width:260px;
     height:100vh;
 
     background:rgba(0,0,0,.97);
@@ -1679,13 +1679,15 @@ section{
     justify-content:center;
     align-items:center;
 
-    gap:28px;
+    gap:18px;
 
     transition:.45s;
 
     z-index:10000;
 
 }
+
+
 
 .menuVisible{
 

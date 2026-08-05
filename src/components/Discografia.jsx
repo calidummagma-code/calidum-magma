@@ -1,280 +1,116 @@
-import directe from "../assets/discografia/calidum-magma-directe.jpg";
-import hebdomana from "../assets/discografia/hebdomana-dimidia-vol-001.jpg";
-
+import { useEffect, useState, useRef } from "react";
+import { supabase } from "../supabase/client";
 import "./Discografia.css";
 
 
+export default function Discografia() {
 
 
-function Discografia() {
+    const [discos, setDiscos] = useState([]);
 
+    const [cargando, setCargando] = useState(true);
 
-  return (
+    const [discoSeleccionado, setDiscoSeleccionado] = useState(null);
 
 
-    <section
-      className="discografia"
-      id="discografia"
-    >
+    const cintaRef = useRef(null);
 
 
 
-      {/* ===========================
-          CABECERA
-      ============================ */}
 
+    useEffect(() => {
 
-      <div className="discografiaHeader">
+        cargarDiscografia();
 
+    }, []);
 
 
-        <div className="tituloBloque">
 
 
-          <h2 className="sectionTitle">
 
-            DISCOGRAFÍA
+    async function cargarDiscografia(){
 
-          </h2>
 
+        const { data, error } = await supabase
+            .from("discografia_v2")
+            .select("*")
+            .order("anio", {
+                ascending:false
+            });
 
 
-          <p className="sectionSubtitle">
 
-            Com sonem
+        if(error){
 
-          </p>
+            console.log(error.message);
 
+            setCargando(false);
 
-        </div>
+            return;
 
+        }
 
 
 
+        setDiscos(data || []);
 
-        
+        setCargando(false);
 
 
-      </div>
+    }
 
 
 
 
 
 
-      {/* ===========================
-          DISCOS
-      ============================ */}
 
+    function moverCinta(direccion){
 
 
-      <div className="discografiaGrid">
+        if(cintaRef.current){
 
 
+            cintaRef.current.scrollBy({
 
+                left: direccion,
 
+                behavior:"smooth"
 
+            });
 
-        {/* ===========================
-            DISCO 1
-        ============================ */}
 
+        }
 
 
-        <article className="discoCard">
+    }
 
 
 
-          <div className="discoCover">
 
 
 
-            <img
-              src={directe}
-              alt="Calidum Magma Directe"
-            />
 
+    return (
 
 
+        <section
+            className="discografia"
+            id="discografia"
+        >
 
 
-            <div className="discoOverlay">
 
 
+            <div className="discografiaHeader">
 
-              <h3>
-                CALIDUM MAGMA DIRECTE
-              </h3>
+                <div className="tituloBloque">
 
+                    <h2 className="sectionTitle">
+                        DISCOGRAFIA
+                    </h2>
 
-
-              <p>
-                Any: 2024
-              </p>
-
-
-
-              <p>
-                Cançons: 7
-              </p>
-
-
-
-
-
-              <div className="linksMusica">
-
-
-
-                <a
-  href="https://music.youtube.com/playlist?list=OLAK5uy_ma65BQai-_cMOuJR3fND4ykP10W2dU31k&si=_g4iFVcyW27xhDBe"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  YouTube Music
-</a>
-
-
-
-                <a
-  href="https://open.spotify.com/intl-es/album/2knxavmN3dzgaYhpRZQBuO?si=e4705b0e8a6c42f8"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  Spotify
-</a>
-
-
-
-                <a
-  href="https://music.apple.com/es/album/calidum-magma-directe/6795351637"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  Apple Music
-</a>
-
-
-
-              </div>
-
-
-
-            </div>
-
-
-
-
-
-            <h3 className="tituloNormal">
-
-              CALIDUM MAGMA DIRECTE
-
-            </h3>
-
-
-
-
-          </div>
-
-
-
-        </article>
-
-
-
-
-
-
-
-
-
-        {/* ===========================
-            DISCO 2
-        ============================ */}
-
-
-
-        <article className="discoCard">
-
-
-
-          <div className="discoCover">
-
-
-
-            <img
-              src={hebdomana}
-              alt="Hebdomana Dimidia Vol.001"
-            />
-
-
-
-
-
-            <div className="discoOverlay">
-
-
-
-              <h3>
-                HEBDOMANA DIMIDIA VOL.001
-              </h3>
-
-
-
-              <p>
-                Any: 2026
-              </p>
-
-
-
-              <p>
-                Cançons: 4
-              </p>
-
-
-
-
-
-              <div className="linksMusica">
-
-
-
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  YouTube
-                </a>
-
-
-
-
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Spotify
-                </a>
-
-
-
-
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Apple Music
-                </a>
-
-
-
-              </div>
-
-
+                </div>
 
             </div>
 
@@ -283,40 +119,485 @@ function Discografia() {
 
 
 
-            <h3 className="tituloNormal">
-
-              HEBDOMANA DIMIDIA VOL.001
-
-            </h3>
 
 
 
+            {cargando && (
 
+                <p>
+                    Carregant discografia...
+                </p>
 
-          </div>
-
-
-
-
-        </article>
+            )}
 
 
 
 
 
-      </div>
 
 
 
 
-    </section>
+            {!cargando && discos.length > 0 && (
 
 
-  );
+
+                <div className="cintaWrapper">
+
+
+
+
+
+                    <button
+
+                        className="flechaDisco izquierda"
+
+                        onClick={() => moverCinta(-330)}
+
+                    >
+
+                        ‹
+
+                    </button>
+
+
+
+
+
+
+
+                    <div
+
+                        className="discografiaGrid"
+
+                        ref={cintaRef}
+
+                    >
+
+
+
+
+                        {discos.map((disco)=>(
+
+
+
+                            <article
+
+                                className="discoCard"
+
+                                key={disco.id}
+
+                            >
+
+
+
+
+
+                                <div className="discoCover">
+
+
+
+
+
+                                    {disco.portada && (
+
+
+                                        <img
+
+                                            src={disco.portada}
+
+                                            alt={disco.titulo}
+
+                                            className="portadaClick"
+
+                                            onClick={() =>
+                                                setDiscoSeleccionado(disco)
+                                            }
+
+                                        />
+
+
+                                    )}
+
+
+
+
+
+
+
+
+                                    <div className="discoOverlay">
+
+
+
+                                        <h3>
+                                            {disco.titulo}
+                                        </h3>
+
+
+
+
+                                        <p>
+                                            {disco.tipo}
+                                        </p>
+
+
+
+
+                                        <p>
+                                            {disco.anio}
+                                        </p>
+
+
+
+
+
+
+
+                                        <div className="linksMusica">
+
+
+                                            {disco.spotify && (
+
+                                                <a
+                                                    href={disco.spotify}
+                                                    target="_blank"
+                                                    rel="noreferrer"
+                                                >
+
+                                                    Spotify
+
+                                                </a>
+
+                                            )}
+
+
+
+
+
+
+                                            {disco.youtube && (
+
+                                                <a
+                                                    href={disco.youtube}
+                                                    target="_blank"
+                                                    rel="noreferrer"
+                                                >
+
+                                                    YouTube
+
+                                                </a>
+
+                                            )}
+
+
+
+
+
+
+                                            {disco.applemusic && (
+
+                                                <a
+                                                    href={disco.applemusic}
+                                                    target="_blank"
+                                                    rel="noreferrer"
+                                                >
+
+                                                    Apple Music
+
+                                                </a>
+
+                                            )}
+
+
+
+                                        </div>
+
+
+
+
+                                    </div>
+
+
+
+
+                                </div>
+
+
+
+
+
+
+
+
+                                <h3 className="tituloNormal">
+
+                                    {disco.titulo}
+
+                                </h3>
+
+
+
+
+
+
+
+                            </article>
+
+
+
+                        ))}
+
+
+
+
+
+                    </div>
+
+
+
+
+
+
+
+
+                    <button
+
+                        className="flechaDisco derecha"
+
+                        onClick={() => moverCinta(330)}
+
+                    >
+
+                        ›
+
+                    </button>
+
+
+
+
+
+                </div>
+
+
+
+            )}
+
+
+
+
+
+
+
+
+
+            {!cargando && discos.length === 0 && (
+
+                <p>
+                    Encara no hi ha discos disponibles.
+                </p>
+
+            )}
+
+
+
+
+
+
+
+
+
+
+
+
+            {discoSeleccionado && (
+
+
+
+                <div
+
+                    className="lightbox"
+
+                    onClick={() =>
+                        setDiscoSeleccionado(null)
+                    }
+
+                >
+
+
+
+
+                    <div
+
+                        className="lightboxContenido"
+
+                        onClick={(e)=>
+                            e.stopPropagation()
+                        }
+
+                    >
+
+
+
+
+
+                        <button
+
+                            className="cerrarLightbox"
+
+                            onClick={() =>
+                                setDiscoSeleccionado(null)
+                            }
+
+                        >
+
+                            ✕
+
+                        </button>
+
+
+
+
+
+
+
+                        <img
+
+                            src={discoSeleccionado.portada}
+
+                            alt={discoSeleccionado.titulo}
+
+                        />
+
+
+
+
+
+
+
+
+                        <div className="infoLightbox">
+
+
+
+
+
+                            <h2>
+
+                                {discoSeleccionado.titulo}
+
+                            </h2>
+
+
+
+
+
+
+
+                            <p>
+
+                                {discoSeleccionado.tipo}
+
+                                {" · "}
+
+                                {discoSeleccionado.anio}
+
+                            </p>
+
+
+
+
+
+
+
+                            <div className="linksMusica">
+
+
+
+                                {discoSeleccionado.spotify && (
+
+                                    <a
+                                        href={discoSeleccionado.spotify}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Spotify
+                                    </a>
+
+                                )}
+
+
+
+
+
+
+                                {discoSeleccionado.youtube && (
+
+                                    <a
+                                        href={discoSeleccionado.youtube}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        YouTube
+                                    </a>
+
+                                )}
+
+
+
+
+
+
+
+                                {discoSeleccionado.applemusic && (
+
+                                    <a
+                                        href={discoSeleccionado.applemusic}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Apple Music
+                                    </a>
+
+                                )}
+
+
+
+
+
+                            </div>
+
+
+
+
+
+                        </div>
+
+
+
+
+
+                    </div>
+
+
+
+
+
+                </div>
+
+
+
+            )}
+
+
+
+
+
+
+        </section>
+
+
+    );
 
 
 }
-
-
-
-export default Discografia;

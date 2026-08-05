@@ -1,119 +1,242 @@
 import "./Music.css";
 
-import { useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
+
+import { supabase } from "../supabase/client";
 
 import fondo from "../assets/reproductor.jpg";
 
-import tema1 from "../assets/music/01.-UN-DIMARTS-QUALSEVOL.mp3";
-import tema2 from "../assets/music/02.-DIMECRES-LAUCA-DE-LORFIDAL.mp3";
-import tema3 from "../assets/music/03.-DIJOUS-DE-TAQUICARDIA.mp3";
-import tema4 from "../assets/music/04.-DIVENDRES-AMB-GANES-DE-TU.mp3";
 
 export default function Music() {
 
-    const canciones = [
 
-        {
-            titulo: "Un dimarts qualsevol",
-            archivo: tema1
-        },
-
-        {
-            titulo: "Dimecres: L'auca de l'Orfidal",
-            archivo: tema2
-        },
-
-        {
-            titulo: "Dijous de taquicàrdia",
-            archivo: tema3
-        },
-
-        {
-            titulo: "Divendres amb ganes de tu",
-            archivo: tema4
-        }
-
-    ];
-
+    const [canciones, setCanciones] = useState([]);
 
     const [actual, setActual] = useState(0);
 
     const audioRef = useRef(null);
 
 
-    function reproducir(index) {
 
-        setActual(index);
+    useEffect(() => {
+             window.scrollTo(0, 0);
+        cargarMusica();
 
-        setTimeout(() => {
+    }, []);
 
-            audioRef.current.play();
 
-        }, 100);
+
+
+    async function cargarMusica() {
+
+
+        const { data, error } = await supabase
+
+            .from("musica")
+
+            .select("*")
+
+            .order("id", { ascending:true });
+
+
+
+        if (error) {
+
+            console.log(error);
+
+            return;
+
+        }
+
+
+
+        setCanciones(data || []);
+
 
     }
 
 
-    function siguiente() {
+
+
+
+    function reproducir(index) {
+
+
+        setActual(index);
+
+
+
+        setTimeout(() => {
+
+
+            if(audioRef.current){
+
+                audioRef.current.play();
+
+            }
+
+
+        },100);
+
+
+    }
+
+
+
+
+
+    function siguiente(){
+
 
         let nuevo = actual + 1;
 
-        if (nuevo >= canciones.length) {
+
+
+        if(nuevo >= canciones.length){
 
             nuevo = 0;
 
         }
 
+
+
         reproducir(nuevo);
+
 
     }
 
 
-    function anterior() {
+
+
+
+    function anterior(){
+
 
         let nuevo = actual - 1;
 
-        if (nuevo < 0) {
+
+
+        if(nuevo < 0){
 
             nuevo = canciones.length - 1;
 
         }
 
+
+
         reproducir(nuevo);
+
 
     }
 
 
+
+
+
+
+
+    if(canciones.length === 0){
+
+
+        return (
+
+            <main className="musicPage">
+
+
+                <img
+
+                    src={fondo}
+
+                    className="fondoMusic"
+
+                    alt=""
+
+                />
+
+
+                <div className="overlayMusic"/>
+
+
+
+                <div className="contenidoMusic">
+
+
+                    <h2>
+
+                        Carregant música...
+
+                    </h2>
+
+
+                </div>
+
+
+
+            </main>
+
+        );
+
+
+    }
+
+
+
+
+
+
+
+
     return (
+
 
         <main className="musicPage">
 
 
+
             <button
+
                 className="cerrarMusic"
+
                 onClick={() => window.history.back()}
+
             >
 
                 ✕
+
 
             </button>
 
 
 
+
+
             <img
+
                 src={fondo}
-                alt=""
+
                 className="fondoMusic"
+
+                alt=""
+
             />
 
 
-            <div className="overlayMusic" />
+
+            <div className="overlayMusic"/>
+
+
+
+
 
 
             <div className="contenidoMusic">
 
 
+
+
+
                 <div className="cabeceraMusic">
+
 
                     <span className="numero">
 
@@ -121,87 +244,128 @@ export default function Music() {
 
                     </span>
 
+
+
                     <h1>
 
                         MÚSICA
 
                     </h1>
 
+
                 </div>
+
+
+
+
 
 
 
                 <h2>
 
-                    HEBDÒMANA
+                    {canciones[actual].disco}
 
                 </h2>
+
+
+
+
+
 
 
 
                 <div className="listaCanciones">
 
 
+
                     {
 
-                        canciones.map((tema, index) => (
+
+                    canciones.map((tema,index)=>(
 
 
-                            <div
-                                key={index}
-                                className={
-                                    actual === index
-                                        ? "tema activo"
-                                        : "tema"
-                                }
+
+                        <div
+
+                            key={tema.id}
+
+                            className={
+
+                                actual === index
+
+                                ? "tema activo"
+
+                                : "tema"
+
+                            }
+
+                        >
+
+
+
+
+                            <button
+
+                                className="botonTema"
+
+                                onClick={()=>reproducir(index)}
+
                             >
 
-                                <button
-                                    className="botonTema"
-                                    onClick={() => reproducir(index)}
-                                >
 
-                                    <span>▶</span>
+                                <span>
 
-                                    {tema.titulo}
+                                    ▶
 
-                                </button>
+                                </span>
 
 
-
-                                <a
-    href={tema.archivo}
-    download
-    className="descargaTema"
->
-
-    ⬇
-
-    <span className="tooltipDescarga">
-
-        Descarrega
-
-    </span>
-
-</a>
-
-                            </div>
+                                {tema.titulo}
 
 
-                        ))
+
+                            </button>
+
+
+
+
+
+
+                           
+
+
+
+                        </div>
+
+
+
+                    ))
+
+
 
                     }
+
+
+
 
 
                 </div>
 
 
 
+
+
+
+
+
                 <div className="playerMusic">
 
 
+
                     <button
+
                         onClick={anterior}
+
                     >
 
                         ⏮
@@ -210,8 +374,11 @@ export default function Music() {
 
 
 
+
                     <button
-                        onClick={() => audioRef.current.play()}
+
+                        onClick={()=>audioRef.current.play()}
+
                     >
 
                         ▶
@@ -220,8 +387,12 @@ export default function Music() {
 
 
 
+
+
                     <button
-                        onClick={() => audioRef.current.pause()}
+
+                        onClick={()=>audioRef.current.pause()}
+
                     >
 
                         ❚❚
@@ -230,8 +401,12 @@ export default function Music() {
 
 
 
+
+
                     <button
+
                         onClick={siguiente}
+
                     >
 
                         ⏭
@@ -239,46 +414,92 @@ export default function Music() {
                     </button>
 
 
+
+
                 </div>
+
+
+
+
+
+
 
 
 
                 <audio
 
-                    ref={audioRef}
+    ref={audioRef}
 
-                    controls
+    controls
 
-                    className="audioMusic"
+     controlsList="nodownload"
 
-                    src={canciones[actual].archivo}
+    className="audioMusic"
 
-                    onEnded={siguiente}
+    src={canciones[actual].url}
 
-                />
+    onLoadedMetadata={(e)=>{
+
+        if(canciones[actual].inicio){
+
+            e.target.currentTime = Number(canciones[actual].inicio);
+
+        }
+
+    }}
+
+
+    onTimeUpdate={(e)=>{
+
+
+        const tiempoActual = e.target.currentTime;
+
+
+        const final = Number(canciones[actual].fin);
 
 
 
-                <div className="descargaActual">
+        if(final && tiempoActual >= final){
 
-                    <a
-                        href={canciones[actual].archivo}
-                        download
-                        className="descargarTema"
-                    >
 
-                        ⬇ DESCARREGA LA CANÇÓ
+            e.target.pause();
 
-                    </a>
 
-                </div>
+            e.target.currentTime = Number(canciones[actual].inicio) || 0;
+
+
+        }
+
+
+    }}
+
+
+    onEnded={siguiente}
+
+/>
+
+
+
+
+
+
+
+
+                
+
+
+
 
 
             </div>
 
 
+
+
         </main>
 
+
     );
+
 
 }

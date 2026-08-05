@@ -15,6 +15,10 @@ import { Link } from "react-router-dom";
 import Bolos from "../components/Bolos";
 import Galeria from "../components/Galeria";
 import videoLogo from "../assets/videos/Video-logo-web.mp4";
+import { useNavigate } from "react-router-dom";
+
+
+
 
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -27,7 +31,7 @@ import {
 
 export default function Home() {
 
-
+const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [mostrarFondo, setMostrarFondo] = useState(false);
@@ -142,16 +146,42 @@ backgroundImage:`url(${fotoBanda})`
 
     <nav className={`menuLateral ${menuOpen ? "menuVisible" : ""}`}>
 
-    <button onClick={() => scrollToSection("inicio")}>INICI</button>
-    <button onClick={() => scrollToSection("banda")}>BANDA</button>
-    <button onClick={() => scrollToSection("discografia")}>DISCOGRAFIA</button>
-    <button onClick={() => scrollToSection("conciertos")}>BOLOS</button>
-    <button onClick={() => scrollToSection("galeria")}>GALERIA</button>
-    <button onClick={() => scrollToSection("contacte")}>CONTACTE</button>
+    <button onClick={() => scrollToSection("inicio")}>
+        INICI
+    </button>
 
-   <Link to="/epk" className="epkMenu" onClick={() => setMenuOpen(false)}>
-    EPK
-</Link>
+    <button onClick={() => navigate("/news")}>
+    NEWS
+</button>
+    <button onClick={() => scrollToSection("banda")}>
+        BANDA
+    </button>
+
+    <button onClick={() => scrollToSection("conciertos")}>
+        BOLOS
+    </button>
+
+    <button onClick={() => scrollToSection("discografia")}>
+        DISCOGRAFIA
+    </button>
+
+    <button onClick={() => scrollToSection("galeria")}>
+        GALERIA
+    </button>
+
+    <button onClick={() => scrollToSection("contacte")}>
+        CONTACTE
+    </button>
+
+
+    <Link 
+        to="/epk"
+        className="epkMenu"
+        onClick={() => setMenuOpen(false)}
+    >
+        EPK
+    </Link>
+
 
     <div className="socialMenuLateral">
 
@@ -162,6 +192,7 @@ backgroundImage:`url(${fotoBanda})`
         >
             <FontAwesomeIcon icon={faInstagram}/>
         </a>
+
 
         <a
             href="https://www.youtube.com/@CalidumMagma"
@@ -174,7 +205,6 @@ backgroundImage:`url(${fotoBanda})`
     </div>
 
 </nav>
-
 </header>
 
 
