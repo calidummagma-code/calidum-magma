@@ -174,13 +174,25 @@ backgroundImage:`url(${fotoBanda})`
     </button>
 
 
-    <Link 
+  <div className="epkContainer">
+
+    <Link
         to="/epk"
         className="epkMenu"
         onClick={() => setMenuOpen(false)}
     >
         EPK
     </Link>
+
+    <Link
+        to="/admin"
+        className="adminMiniLink"
+        onClick={() => setMenuOpen(false)}
+    >
+        admin
+    </Link>
+
+</div>
 
 
     <div className="socialMenuLateral">

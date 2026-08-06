@@ -4,826 +4,1153 @@ import logo from "../assets/logo-calidum.png";
 import portada from "../assets/epk/portada-epk.png";
 import hebdomana from "../assets/epk/hebdomana.jpg";
 
+import { useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
+
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
+
+
 
 export default function EPK() {
 
+
     const navigate = useNavigate();
 
-    return (
+    const seccionsPDF = useRef([]);
 
-      
 
-        <main className="epk">
 
- <Link
-    to="/"
-    className="veureMes volverWeb"
+    useEffect(() => {
+
+        window.scrollTo(0,0);
+
+    }, []);
+
+
+
+
+    async function descargarEPK(){
+
+
+        const pdf = new jsPDF({
+
+            orientation:"portrait",
+
+            unit:"mm",
+
+            format:"a4"
+
+        });
+
+
+
+        for(
+            let i = 0;
+            i < seccionsPDF.current.length;
+            i++
+        ){
+
+
+            const seccio = seccionsPDF.current[i];
+
+
+            if(!seccio) continue;
+
+
+
+            const canvas = await html2canvas(seccio,{
+
+                scale:2,
+
+                backgroundColor:"#050505",
+
+                useCORS:true
+
+            });
+
+
+
+            const imgData =
+            canvas.toDataURL("image/png");
+
+
+
+            const ancho = 210;
+
+
+            const alto =
+            canvas.height * ancho / canvas.width;
+
+
+
+            if(i !== 0){
+
+                pdf.addPage();
+
+            }
+
+
+
+            pdf.addImage(
+
+                imgData,
+
+                "PNG",
+
+                0,
+
+                0,
+
+                ancho,
+
+                alto
+
+            );
+
+
+        }
+
+
+
+        pdf.save(
+            "Calidum-Magma-EPK.pdf"
+        );
+
+
+    }
+
+
+
+
+
+return (
+
+
+<main className="epk">
+
+
+
+<button
+className="veureMes volverWeb"
+onClick={()=>{
+
+    navigate("/");
+
+    window.scrollTo(0,0);
+
+}}
 >
-    ←Web
-</Link>
+← Web
+</button>
+
+
+
+
+<button
+className="veureMes botonPDF"
+onClick={descargarEPK}
+>
+📄 DESCARREGAR EPK PDF
+</button>
 
 
 
 
 
-            {/* =========================
-                PORTADA
-            ========================== */}
 
-            <section className="hero">
-
-
-                <img
-                    src={portada}
-                    alt="Calidum Magma"
-                    className="epkFondo"
-                />
+{/* =========================
+    PORTADA
+========================== */}
 
 
-               <div className="epkHeroContent">
+<section
+className="hero"
+ref={el => seccionsPDF.current[0]=el}
+>
 
-    <img
-        src={logo}
-        alt="Calidum Magma"
-        className="epkLogo"
-    />
 
-    <h1 className="epkTitulo">
-        CALIDUM MAGMA
-    </h1>
+<img
+src={portada}
+alt="Calidum Magma"
+className="epkFondo"
+/>
 
-  
 
-    <p className="epkSubtitulo">
-        Rock d'autor · Tarragona · Des de 2024
-    </p>
+
+<div className="epkHeroContent">
+
+
+<img
+src={logo}
+alt="Calidum Magma"
+className="epkLogo"
+/>
+
+
+
+<h1 className="epkTitulo">
+
+CALIDUM MAGMA
+
+</h1>
+
+
+
+<p className="epkSubtitulo">
+
+Rock d'autor · Tarragona · Des de 2024
+
+</p>
+
 
 </div>
 
+
+
 <p className="scrollIndicador">
-    BAIXA PER VEURE MÉS ↓
+
+BAIXA PER VEURE MÉS ↓
+
 </p>
+
 
 </section>
 
 
 
 
-            {/* =========================
-                QUI SOM
-            ========================== */}
 
 
-            <section className="quiSom">
 
 
-                <div>
+{/* =========================
+    QUI SOM
+========================== */}
 
 
-                    <span className="numero">
-                        01
-                    </span>
 
+<section
+className="quiSom"
+ref={el => seccionsPDF.current[1]=el}
+>
 
-                    <h2>
-                        QUI SOM?
-                    </h2>
 
+<div>
 
-                    <p>
 
-                        <strong>Calidum Magma</strong> neix a Tarragona amb una idea molt clara:
-                        fer rock sense disfresses.
+<span className="numero">
 
-                        <br /><br />
+01
 
-                        Les seves cançons combinen la força del rock català amb influències
-                        del punk i del hard rock, construint un repertori propi basat en
-                        l'energia, la sinceritat i la connexió directa amb el públic.
+</span>
 
-                        <br /><br />
 
-                        Cada concert és una experiència directa, intensa i honesta.
 
-                    </p>
+<h2>
 
+QUI SOM?
 
+</h2>
 
-                    <Link
-                        to="/banda"
-                        className="veureMes"
-                    >
-                        VEURE MÉS →
-                    </Link>
 
 
-                </div>
+<p>
 
 
+<strong>
+Calidum Magma
+</strong>
 
-                <div className="cita">
+neix a Tarragona amb una idea molt clara:
+fer rock sense disfresses.
 
 
-                    <span className="cometes">
-                        "
-                    </span>
+<br /><br />
 
 
-                    <p>
+Les seves cançons combinen la força del rock català amb influències
+del punk i del hard rock, construint un repertori propi basat en
+l'energia, la sinceritat i la connexió directa amb el públic.
 
-                        Calidum Magma no busca mirar enrere.
 
-                        <br /><br />
+<br /><br />
 
-                        Vol demostrar que el rock continua tenint coses a dir.
 
-                    </p>
+Cada concert és una experiència directa, intensa i honesta.
 
 
-                </div>
+</p>
 
 
-            </section>
 
+<Link
+to="/banda"
+className="veureMes"
+>
 
+VEURE MÉS →
 
+</Link>
 
 
+</div>
 
-            {/* =========================
-                BIOGRAFIA
-            ========================== */}
 
 
-            <section className="biografia">
 
 
-                <div className="biografiaContenido">
+<div className="cita">
 
 
-                    <span className="numero">
-                        02
-                    </span>
+<span className="cometes">
 
+"
 
+</span>
 
-                    <h2>
-                        BIOGRAFIA
-                    </h2>
 
 
+<p>
 
-                    <p>
+Calidum Magma no busca mirar enrere.
 
-                        Calidum Magma neix a Tarragona l'any 2024 amb la voluntat
-                        de crear un projecte de rock amb identitat pròpia.
 
-                        <br /><br />
+<br /><br />
 
-                        La banda recupera l'esperit del rock de sempre i el combina
-                        amb influències actuals, mantenint una actitud directa i sense
-                        artificis.
 
-                        <br /><br />
+Vol demostrar que el rock continua tenint coses a dir.
 
-                        Amb cançons pròpies i un so contundent, Calidum Magma defensa
-                        una manera d'entendre la música basada en l'energia, el missatge
-                        i el contacte amb el públic.
 
-                    </p>
+</p>
 
 
+</div>
 
-                    <div className="fraseBiografia">
 
-                        EL ROCK CONTINUA
-                        <br />
-                        TENINT COSES A DIR.
 
-                    </div>
+</section>
 
 
-                </div>
 
 
 
-                <Link
-                    to="/biografia"
-                    className="veureMes"
-                >
-                    VEURE MÉS →
-                </Link>
 
 
-            </section>
 
+{/* =========================
+    BIOGRAFIA
+========================== */}
 
 
 
+<section
+className="biografia"
+ref={el => seccionsPDF.current[2]=el}
+>
 
 
-            {/* =========================
-                EL DIRECTE
-            ========================== */}
 
+<div className="biografiaContenido">
 
-            <section className="directe">
 
 
-                <div>
+<span className="numero">
 
+02
 
-                    <span className="numero">
-                        03
-                    </span>
+</span>
 
 
 
-                    <h2>
-                        EL DIRECTE
-                    </h2>
 
+<h2>
 
+BIOGRAFIA
 
-                    <p>
+</h2>
 
-                        Intens. Honest. Sense concessions.
 
-                        <br /><br />
 
-                        Calidum Magma converteix cada concert en una experiència
-                        compartida amb el públic.
 
-                        <br /><br />
+<p>
 
-                        Un directe enèrgic, contundent i basat en la força
-                        de les cançons pròpies.
 
-                    </p>
+Calidum Magma neix a Tarragona l'any 2024 amb la voluntat
+de crear un projecte de rock amb identitat pròpia.
 
 
-                </div>
+<br /><br />
 
 
+La banda recupera l'esperit del rock de sempre i el combina
+amb influències actuals, mantenint una actitud directa i sense
+artificis.
 
-                <div className="directeDades">
 
+<br /><br />
 
-                    <div className="dada">
 
-                        <strong>
-                            2024
-                        </strong>
+Amb cançons pròpies i un so contundent, Calidum Magma defensa
+una manera d'entendre la música basada en l'energia, el missatge
+i el contacte amb el públic.
 
-                        <span>
-                            ANY FUNDACIÓ
-                        </span>
 
-                    </div>
 
+</p>
 
-                    <div className="dada">
 
-                        <strong>
-                            10+
-                        </strong>
 
-                        <span>
-                            CONCERTS
-                        </span>
 
-                    </div>
+<div className="fraseBiografia">
 
+EL ROCK CONTINUA
+<br />
+TENINT COSES A DIR.
 
-                    <div className="dada">
+</div>
 
-                        <strong>
-                            60'
-                        </strong>
 
-                        <span>
-                            DURADA SHOW
-                        </span>
 
-                    </div>
+</div>
 
 
-                    <div className="dada">
 
-                        <strong>
-                            100%
-                        </strong>
 
-                        <span>
-                            CANÇONS PRÒPIES
-                        </span>
 
-                    </div>
+<Link
+to="/biografia"
+className="veureMes"
+>
 
+VEURE MÉS →
 
-                </div>
+</Link>
 
 
-                <div className="directeBoto">
 
-                    <Link
-                        to="/directe"
-                        className="veureMes"
-                    >
-                        VEURE MÉS →
-                    </Link>
+</section>
 
-                </div>
+/* =========================
+    EL DIRECTE
+========================== */
 
 
-            </section>
+<section
+className="directe"
+ref={el => seccionsPDF.current[3]=el}
+>
 
-                        {/* =========================
-                MUSICA
-            ========================== */}
 
+<div>
 
-            <section className="musica">
 
+<span className="numero">
+03
+</span>
 
-                <div className="musicaTexto">
 
 
-                    <span className="numero">
-                        04
-                    </span>
+<h2>
+EL DIRECTE
+</h2>
 
 
-                    <h2>
-                        MÚSICA
-                    </h2>
 
+<p>
 
-                    <p>
+Intens. Honest. Sense concessions.
 
-                        El primer treball discogràfic de Calidum Magma
-                        recull l'essència del projecte:
 
-                        <br /><br />
+<br /><br />
 
-                        Rock directe, actitud i cançons pròpies.
 
-                    </p>
+Calidum Magma converteix cada concert en una experiència
+compartida amb el públic.
 
 
-                    <Link
-                        to="/music"
-                        className="veureMes"
-                    >
-                        VEURE MÉS →
-                    </Link>
+<br /><br />
 
 
-                </div>
+Un directe enèrgic, contundent i basat en la força
+de les cançons pròpies.
 
 
+</p>
 
 
+</div>
 
-                <div className="discPrincipal">
 
 
-                    <img
-                        src={hebdomana}
-                        alt="Hebdomana Dimídia Vol.001"
-                        className="portadaDisc"
-                    />
 
 
+<div className="directeDades">
 
-                    <div className="discInfo">
 
 
-                        <h3>
-                            HEBDÒMANA DIMÍDIA
-                            <br />
-                            VOL.001
-                        </h3>
+<div className="dada">
 
+<strong>
+2024
+</strong>
 
-                        <p>
+<span>
+ANY FUNDACIÓ
+</span>
 
-                            El primer EP de Calidum Magma.
+</div>
 
-                            Quatre cançons originals que defineixen
-                            la identitat sonora de la banda:
-                            rock d'autor, energia i actitud.
 
-                        </p>
 
+<div className="dada">
 
-                    </div>
+<strong>
+10+
+</strong>
 
+<span>
+CONCERTS
+</span>
 
-                </div>
+</div>
 
 
-            </section>
 
+<div className="dada">
 
+<strong>
+60'
+</strong>
 
+<span>
+DURADA SHOW
+</span>
 
+</div>
 
 
 
+<div className="dada">
 
-            {/* =========================
-                PREMSA
-            ========================== */}
+<strong>
+100%
+</strong>
 
+<span>
+CANÇONS PRÒPIES
+</span>
 
-            <section className="premsa">
+</div>
 
 
-                <div className="premsaContenido">
 
+</div>
 
-                    <span className="numero">
-                        05
-                    </span>
 
 
 
-                    <h2>
-                        PREMSA
-                    </h2>
 
+<div className="directeBoto">
 
 
-                    <p>
+<Link
+to="/directe"
+className="veureMes"
+>
 
-                        Espai destinat a aparicions en mitjans,
-                        entrevistes, ressenyes i mencions
-                        relacionades amb Calidum Magma.
+VEURE MÉS →
 
-                        <br /><br />
+</Link>
 
-                        Aquí incorporarem les valoracions i
-                        continguts destacats de premsa.
 
-                    </p>
+</div>
 
 
 
+</section>
 
-                    <div className="frasesPremsa">
 
 
-                        <div className="citaPremsa">
 
-                            "El rock continua tenint coses a dir."
 
-                        </div>
 
 
-                        <div className="citaPremsa">
 
-                            "Una proposta amb energia i identitat pròpia."
+{/* =========================
+    MUSICA
+========================== */}
 
-                        </div>
 
 
-                        <div className="citaPremsa">
+<section
+className="musica"
+ref={el => seccionsPDF.current[4]=el}
+>
 
-                            "Rock directe, honest i sense artificis."
 
-                        </div>
+<div className="musicaTexto">
 
 
-                    </div>
+<span className="numero">
+04
+</span>
 
 
-                </div>
 
+<h2>
+MÚSICA
+</h2>
 
-            </section>
 
 
+<p>
 
+El primer treball discogràfic de Calidum Magma
+recull l'essència del projecte:
 
 
+<br /><br />
 
 
+Rock directe, actitud i cançons pròpies.
 
 
-            {/* =========================
-                FITXA TÈCNICA / RIDER
-            ========================== */}
+</p>
 
 
-            <section className="rider">
 
 
-                <div className="riderContenido">
+<Link
+to="/music"
+className="veureMes"
+>
 
+VEURE MÉS →
 
-                    <span className="numero">
-                        06
-                    </span>
+</Link>
 
 
-                    <h2>
-                        FITXA TÈCNICA / RIDER
-                    </h2>
 
+</div>
 
 
-                    <p>
 
-                        Informació orientada a sales, festivals
-                        i promotors.
 
-                        <br /><br />
 
-                        El format del directe s'adapta a diferents
-                        espais mantenint sempre la intensitat
-                        del projecte.
 
-                    </p>
+<div className="discPrincipal">
 
 
+<img
+src={hebdomana}
+alt="Hebdomana Dimídia Vol.001"
+className="portadaDisc"
+/>
 
 
-                    <div className="riderDatos">
 
+<div className="discInfo">
 
 
-                        <div className="riderBloque">
+<h3>
 
-                            <h3>
-                                FORMAT
-                            </h3>
+HEBDÒMANA DIMÍDIA
+<br />
+VOL.001
 
-                            <p>
+</h3>
 
-                                Banda de rock
-                                <br />
-                                Directe propi
-                                <br />
-                                So contundent
 
-                            </p>
 
-                        </div>
+<p>
 
+El primer EP de Calidum Magma.
 
+Quatre cançons originals que defineixen
+la identitat sonora de la banda:
+rock d'autor, energia i actitud.
 
 
-                        <div className="riderBloque">
+</p>
 
-                            <h3>
-                                DURADA
-                            </h3>
 
-                            <p>
 
-                                60 minuts aproximadament
+</div>
 
-                            </p>
 
-                        </div>
+</div>
 
 
 
+</section>
 
 
-                        <div className="riderBloque">
 
-                            <h3>
-                                FORMACIÓ
-                            </h3>
 
-                            <p>
 
-                                Veu
-                                <br />
-                                Guitarra
-                                <br />
-                                Baix
-                                <br />
-                                Bateria
 
-                            </p>
 
-                        </div>
 
 
 
+{/* =========================
+    PREMSA
+========================== */}
 
 
-                        <div className="riderBloque">
 
-                            <h3>
-                                NECESSITATS
-                            </h3>
+<section
+className="premsa"
+ref={el => seccionsPDF.current[5]=el}
+>
 
-                            <p>
 
-                                Escenari adequat
-                                <br />
-                                Sistema de so professional
-                                <br />
-                                Prova de so
+<div className="premsaContenido">
 
-                            </p>
 
-                        </div>
+<span className="numero">
+05
+</span>
 
 
 
-                    </div>
+<h2>
+PREMSA
+</h2>
 
 
 
 
+<p>
 
-                    <a
-                        href="/pdf/Rider-Calidum-Magma.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="veureMes"
-                    >
-                        VEURE MÉS →
-                    </a>
+Espai destinat a aparicions en mitjans,
+entrevistes, ressenyes i mencions
+relacionades amb Calidum Magma.
 
 
+<br /><br />
 
-                </div>
 
+Aquí incorporarem les valoracions i
+continguts destacats de premsa.
 
-            </section>
 
+</p>
 
 
 
 
 
+<div className="frasesPremsa">
 
 
-            {/* =========================
-                DATOS DE LA BANDA
-            ========================== */}
 
+<div className="citaPremsa">
 
-            <section className="datosBanda">
+"El rock continua tenint coses a dir."
 
+</div>
 
-                <div>
 
 
-                    <span className="numero">
-                        07
-                    </span>
+<div className="citaPremsa">
 
+"Una proposta amb energia i identitat pròpia."
 
+</div>
 
-                    <h2>
-                        DATOS DE LA BANDA
-                    </h2>
 
 
+<div className="citaPremsa">
 
+"Rock directe, honest i sense artificis."
 
-                    <p>
+</div>
 
 
-                        <strong>
-                            Nom:
-                        </strong>
-                        {" "}
-                        Calidum Magma
 
+</div>
 
-                        <br /><br />
 
+</div>
 
-                        <strong>
-                            Estil:
-                        </strong>
-                        {" "}
-                        Rock d'autor
 
+</section>
 
-                        <br /><br />
 
 
-                        <strong>
-                            Procedència:
-                        </strong>
-                        {" "}
-                        Tarragona
 
 
-                        <br /><br />
 
 
-                        <strong>
-                            Any de formació:
-                        </strong>
-                        {" "}
-                        2024
 
 
-                        <br /><br />
+{/* =========================
+    RIDER
+========================== */}
 
 
-                        <strong>
-                            Repertori:
-                        </strong>
-                        {" "}
-                        100% cançons pròpies
 
+<section
+className="rider"
+ref={el => seccionsPDF.current[6]=el}
+>
 
-                    </p>
 
+<div className="riderContenido">
 
-                </div>
 
+<span className="numero">
+06
+</span>
 
-            </section>
 
 
+<h2>
 
+FITXA TÈCNICA / RIDER
 
+</h2>
 
 
 
+<p>
 
+Informació orientada a sales, festivals
+i promotors.
 
-            {/* =========================
-                CONTACTE I XARXES
-            ========================== */}
 
+<br /><br />
 
-            <section className="contacteEpk">
 
+El format del directe s'adapta a diferents
+espais mantenint sempre la intensitat
+del projecte.
 
-                <div>
 
+</p>
 
-                    <span className="numero">
-                        08
-                    </span>
 
 
 
-                    <h2>
-                        CONTACTE I XARXES
-                    </h2>
 
+<div className="riderDatos">
 
 
-                    <p>
 
-                        Contractació i informació:
+<div className="riderBloque">
 
-                        <br /><br />
+<h3>
+FORMAT
+</h3>
 
-                        Calidum Magma
+<p>
 
-                        <br />
+Banda de rock
+<br />
+Directe propi
+<br />
+So contundent
 
-                        Tarragona
+</p>
 
-                        <br /><br />
+</div>
 
-                        Instagram:
-                        @calidum_magma
 
-                        <br />
 
-                        YouTube:
-                        @CalidumMagma
 
-                        <br />
 
-                        Web:
+<div className="riderBloque">
 
-                        <br />
+<h3>
+DURADA
+</h3>
 
-                        mail:
-                        calidummagma@gmail.com
+<p>
 
-                    </p>
+60 minuts aproximadament
 
+</p>
 
-                </div>
+</div>
 
 
-            </section>
 
 
 
+<div className="riderBloque">
 
-        </main>
+<h3>
+FORMACIÓ
+</h3>
 
+<p>
 
-    );
+Veu
+<br />
+Guitarra
+<br />
+Baix
+<br />
+Bateria
+
+</p>
+
+</div>
+
+
+
+
+
+<div className="riderBloque">
+
+<h3>
+NECESSITATS
+</h3>
+
+<p>
+
+Escenari adequat
+<br />
+Sistema de so professional
+<br />
+Prova de so
+
+</p>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<a
+href="/pdf/Rider-Calidum-Magma.pdf"
+target="_blank"
+rel="noopener noreferrer"
+className="veureMes"
+>
+
+VEURE MÉS →
+
+</a>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+{/* =========================
+    DATOS DE LA BANDA
+========================== */}
+
+
+
+<section
+className="datosBanda"
+ref={el => seccionsPDF.current[7]=el}
+>
+
+
+<div>
+
+
+<span className="numero">
+07
+</span>
+
+
+
+<h2>
+
+DATOS DE LA BANDA
+
+</h2>
+
+
+
+<p>
+
+
+<strong>
+Nom:
+</strong>
+
+{" "}
+Calidum Magma
+
+
+<br /><br />
+
+
+<strong>
+Estil:
+</strong>
+
+{" "}
+Rock d'autor
+
+
+<br /><br />
+
+
+<strong>
+Procedència:
+</strong>
+
+{" "}
+Tarragona
+
+
+<br /><br />
+
+
+<strong>
+Any de formació:
+</strong>
+
+{" "}
+2024
+
+
+<br /><br />
+
+
+<strong>
+Repertori:
+</strong>
+
+{" "}
+100% cançons pròpies
+
+
+</p>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+{/* =========================
+    CONTACTE I XARXES
+========================== */}
+
+
+
+<section
+className="contacteEpk"
+ref={el => seccionsPDF.current[8]=el}
+>
+
+
+<div>
+
+
+<span className="numero">
+08
+</span>
+
+
+
+<h2>
+
+CONTACTE I XARXES
+
+</h2>
+
+
+
+<p>
+
+
+Contractació i informació:
+
+
+<br /><br />
+
+
+Calidum Magma
+
+
+<br />
+
+
+Tarragona
+
+
+<br /><br />
+
+
+Instagram:
+@calidum_magma
+
+
+<br />
+
+
+YouTube:
+@CalidumMagma
+
+
+<br />
+
+
+Web:
+
+
+<br />
+
+
+mail:
+calidummagma@gmail.com
+
+
+
+</p>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+</main>
+
+
+);
+
 
 }

@@ -247,7 +247,6 @@
     animation:zoom .35s;
 
 }
-
 @keyframes zoom{
 
     from{
@@ -312,18 +311,27 @@
 
 .imagenGrande{
 
+    display:block;
+
     width:100%;
 
-    max-height:420px;
+    max-width:100%;
 
-    object-fit:cover;
+    max-height:70vh;
+
+    height:auto;
+
+    object-fit:contain;
+
+    object-position:center;
 
     border-radius:12px;
 
-    margin-bottom:30px;
+    margin:0 auto 30px;
+
+    background:#000;
 
 }
-
 .ventanaNoticia h2{
 
     margin:0;

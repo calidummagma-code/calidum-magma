@@ -861,3 +861,27 @@
     }
 
 }
+
+
+.botonPDF{
+
+    margin:20px auto;
+
+    display:block;
+
+    background:#8b002b;
+
+    color:#F4F0E8;
+
+    border:1px solid #F4F0E8;
+
+}
+
+
+.botonPDF:hover{
+
+    background:#F4F0E8;
+
+    color:#050505;
+
+}

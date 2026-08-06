@@ -1,15 +1,20 @@
 import { supabase } from "../../supabase/client";
+import { useNavigate } from "react-router-dom";
+
 import "./Admin.css";
 
 
 export default function Sidebar({ setSeccion }) {
 
 
+    const navigate = useNavigate();
+
+
     async function cerrarSesion() {
 
         await supabase.auth.signOut();
 
-        window.location.reload();
+        navigate("/");
 
     }
 
@@ -17,16 +22,12 @@ export default function Sidebar({ setSeccion }) {
 
     return (
 
-
         <aside className="adminSidebar">
-
 
 
             <h2>
                 CALIDUM MAGMA
             </h2>
-
-
 
 
             <button
@@ -36,14 +37,11 @@ export default function Sidebar({ setSeccion }) {
             </button>
 
 
-
             <button
                 onClick={() => setSeccion("discografia")}
             >
                 🎵 Discografia
             </button>
-
-
 
 
             <button
@@ -53,18 +51,11 @@ export default function Sidebar({ setSeccion }) {
             </button>
 
 
-
-
             <button
                 onClick={() => setSeccion("musica")}
             >
                 🎧 Música
             </button>
-
-
-
-
-            
 
 
             <button
@@ -74,16 +65,11 @@ export default function Sidebar({ setSeccion }) {
             </button>
 
 
-
-
             <button
                 onClick={() => setSeccion("botiga")}
             >
                 👕 Botiga
             </button>
-
-
-
 
 
 
@@ -95,10 +81,7 @@ export default function Sidebar({ setSeccion }) {
             </button>
 
 
-
-
         </aside>
-
 
     );
 
