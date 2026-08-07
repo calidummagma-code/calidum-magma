@@ -2,46 +2,40 @@
    DISCOGRAFÍA
 ========================================== */
 
-
 .discografia{
 
     min-height:100vh;
 
-    padding:10px clamp(20px,8vw,120px) 100px;
+    padding:40px clamp(20px,6vw,100px) 100px;
 
     background:
     linear-gradient(
-        #050505,
-        #000
+        #050505 0%,
+        #000 100%
     );
 
-    text-align:center;
+    color:#F4F0E8;
+
+    overflow:hidden;
 
 }
-
-
-
 
 
 /* ==========================================
    CABECERA
 ========================================== */
 
-
 .discografiaHeader{
 
     width:100%;
-
-    margin:-5px auto 35px;
 
     display:flex;
 
     justify-content:center;
 
+    margin-bottom:45px;
+
 }
-
-
-
 
 .tituloBloque{
 
@@ -53,16 +47,13 @@
 
 }
 
-
-
-
 .sectionTitle{
 
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:"Cinzel", serif;
 
-    font-size:clamp(32px,4vw,48px);
+    font-size:clamp(34px,4vw,52px);
 
-    font-weight:900;
+    font-weight:700;
 
     letter-spacing:6px;
 
@@ -74,21 +65,16 @@
 
     text-shadow:
 
-    0 0 20px #000,
+        0 0 15px rgba(0,0,0,.8),
 
-    0 0 35px rgba(0,0,0,.7);
+        0 0 35px rgba(0,0,0,.55);
 
 }
 
 
-
-
-
-
 /* ==========================================
-   SLIDER DISCOS
+   CONTENEDOR SLIDER
 ========================================== */
-
 
 .discografiaSlider{
 
@@ -102,6 +88,11 @@
 
 }
 
+
+/* ==========================================
+   GRID DISCOS
+========================================== */
+
 .discografiaGrid{
 
     width:100%;
@@ -110,7 +101,9 @@
 
     justify-content:flex-start;
 
-    gap:40px;
+    align-items:flex-start;
+
+    gap:35px;
 
     overflow-x:auto;
 
@@ -118,28 +111,9 @@
 
     scrollbar-width:none;
 
-    padding:0 80px 40px;
-
-    transform:translateY(-25px);
+    padding:10px 70px 35px;
 
 }
-
-
-
-.discografiaGrid::before{
-
-    content:"";
-
-    flex:0 0 calc((100% - 5 * 250px - 4 * 40px) / 2);
-
-}
-
-.discografiaGrid:has(.discoCard:nth-child(6)){
-
-    justify-content:flex-start;
-
-}
-
 
 .discografiaGrid::-webkit-scrollbar{
 
@@ -148,44 +122,41 @@
 }
 
 
+/* ==========================================
+   CENTRADO AUTOMÁTICO
+========================================== */
 
+.discografiaGrid.centrada{
 
+    justify-content:center;
+
+}
 
 
 /* ==========================================
-   TARJETA DISCO
+   TARJETAS
 ========================================== */
-
 
 .discoCard{
 
-    flex:0 0 280px;
+    flex:0 0 260px;
 
     position:relative;
 
-    transition:.45s ease;
+    transition:.35s ease;
 
 }
-
-
-
 
 .discoCard:hover{
 
-    transform:translateY(-10px);
+    transform:translateY(-8px);
 
 }
-
-
-
-
-
 
 
 /* ==========================================
    PORTADA
 ========================================== */
-
 
 .discoCover{
 
@@ -193,21 +164,17 @@
 
     overflow:hidden;
 
-    border-radius:12px;
+    border-radius:14px;
 
-    background:#050505;
+    background:#111;
 
     box-shadow:
 
-    0 20px 50px rgba(0,0,0,.75);
+        0 15px 40px rgba(0,0,0,.60);
 
 }
 
-
-
-
 .discoCover img{
-
 
     width:100%;
 
@@ -217,26 +184,15 @@
 
     display:block;
 
-    border-radius:12px;
-
     transition:.45s ease;
 
-
 }
 
+.discoCard:hover .discoCover img{
 
-
-.discoCard:hover img{
-
-    transform:scale(1.06);
+    transform:scale(1.05);
 
 }
-
-
-
-
-
-
 
 .portadaClick{
 
@@ -244,18 +200,11 @@
 
 }
 
-
-
-
-
-
 /* ==========================================
    OVERLAY
 ========================================== */
 
-
 .discoOverlay{
-
 
     position:absolute;
 
@@ -269,26 +218,19 @@
 
     align-items:center;
 
-    padding:25px;
+    padding:22px;
 
     background:
-
     linear-gradient(
-
-        rgba(0,0,0,.2),
-
+        rgba(0,0,0,.15),
         rgba(0,0,0,.92)
-
     );
-
 
     opacity:0;
 
-    transition:.45s ease;
+    transition:.35s ease;
 
 }
-
-
 
 .discoCard:hover .discoOverlay{
 
@@ -296,110 +238,107 @@
 
 }
 
-
-
-
 .discoOverlay h3{
 
+    margin:0 0 10px;
 
-    color:white;
+    color:#F4F0E8;
 
     font-size:22px;
 
-    font-weight:900;
+    font-weight:700;
 
-    letter-spacing:3px;
+    letter-spacing:2px;
+
+    text-align:center;
+
+    text-transform:uppercase;
 
 }
-
-
-
 
 .discoOverlay p{
 
-    color:#ddd;
+    margin:4px 0;
 
-    margin:5px;
+    color:#D7D7D7;
+
+    font-size:14px;
+
+    text-align:center;
+
+    line-height:1.5;
 
 }
 
 
-
-
-
-
-
 /* ==========================================
-   TITULO BAJO DISCO
+   TÍTULO BAJO LA PORTADA
 ========================================== */
 
-
 .tituloNormal{
-
 
     margin-top:18px;
 
     color:#7A1F2B;
 
-    font-size:20px;
+    font-size:18px;
 
-    letter-spacing:3px;
+    font-weight:700;
 
-    font-weight:900;
+    letter-spacing:2px;
 
     text-transform:uppercase;
+
+    text-align:center;
 
 }
 
 
-
-
-
-
-
 /* ==========================================
-   LINKS
+   LINKS MÚSICA
 ========================================== */
 
-
 .linksMusica{
-
 
     display:flex;
 
     justify-content:center;
 
+    align-items:center;
+
     flex-wrap:wrap;
 
     gap:10px;
 
-    margin-top:20px;
+    margin-top:18px;
 
 }
 
-
-
 .linksMusica a{
 
+    padding:8px 14px;
 
-    color:white;
+    border:1px solid rgba(255,255,255,.30);
 
-    border:1px solid white;
+    border-radius:30px;
 
-    padding:7px 12px;
+    color:#F4F0E8;
 
-    font-size:11px;
+    background:rgba(255,255,255,.04);
 
     text-decoration:none;
 
     text-transform:uppercase;
 
-    transition:.3s;
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    transition:.30s ease;
 
 }
-
-
-
 
 .linksMusica a:hover{
 
@@ -407,21 +346,16 @@
 
     border-color:#7A1F2B;
 
+    transform:translateY(-2px);
+
 }
 
 
-
-
-
-
-
 /* ==========================================
-   FLECHAS
+   FLECHAS SLIDER
 ========================================== */
 
-
 .flechaDisco{
-
 
     position:absolute;
 
@@ -429,332 +363,67 @@
 
     transform:translateY(-50%);
 
+    width:46px;
 
-    width:45px;
-
-    height:45px;
-
-
-    border-radius:50%;
-
-
-    background:#111;
-
-    color:#F4F0E8;
-
-
-    border:1px solid rgba(244,240,232,.4);
-
-
-    font-size:30px;
-
-
-    cursor:pointer;
-
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-
-    z-index:10;
-
-
-    transition:.3s;
-
-
-}
-
-
-
-
-.flechaDisco:hover{
-
-
-    background:#7A1F2B;
-
-    transform:translateY(-50%) scale(1.1);
-
-
-}
-
-
-
-.flechaIzquierda{
-
-    left:5px;
-
-}
-
-
-
-.flechaDerecha{
-
-    right:5px;
-
-}
-
-
-
-
-
-
-
-/* ==========================================
-   LIGHTBOX
-========================================== */
-
-
-.lightbox{
-
-
-    position:fixed;
-
-    inset:0;
-
-    background:rgba(0,0,0,.94);
-
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-
-    z-index:99999;
-
-    padding:30px;
-
-
-}
-
-
-
-
-
-.lightboxContenido{
-
-
-    position:relative;
-
-    width:min(1100px,95vw);
-
-
-    background:
-
-    linear-gradient(
-        #151515,
-        #050505
-    );
-
-
-    border:1px solid rgba(122,31,43,.5);
-
-    border-radius:15px;
-
-
-    padding:40px;
-
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-
-    gap:60px;
-
-
-}
-
-
-
-
-
-.lightboxContenido > img{
-
-
-    width:450px;
-
-    max-width:45vw;
-
-    max-height:70vh;
-
-
-    object-fit:contain;
-
-    border-radius:12px;
-
-}
-
-
-
-
-
-
-.cerrarLightbox{
-
-
-    position:absolute;
-
-    top:15px;
-
-    right:20px;
-
-
-    background:none;
+    height:46px;
 
     border:none;
 
+    border-radius:50%;
 
-    color:white;
-
-    font-size:35px;
-
-    cursor:pointer;
-
-}
-
-
-
-
-
-
-
-.infoLightbox{
-
-
-    max-width:350px;
-
-    text-align:left;
-
-}
-
-
-
-
-.infoLightbox h2{
-
+    background:rgba(17,17,17,.95);
 
     color:#F4F0E8;
 
-    font-size:32px;
+    font-size:28px;
 
-    letter-spacing:4px;
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:20;
+
+    transition:.30s ease;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.45);
+
+}
+
+.flechaDisco:hover{
+
+    background:#7A1F2B;
+
+    transform:translateY(-50%) scale(1.08);
+
+}
+
+.flechaIzquierda{
+
+    left:8px;
+
+}
+
+.flechaDerecha{
+
+    right:8px;
 
 }
 
 
-
-
-
-
 /* ==========================================
-   TABLET
+   EFECTO SUAVE
 ========================================== */
 
+.discoCard,
+.discoCover,
+.linksMusica a,
+.flechaDisco{
 
-@media(max-width:900px){
-
-
-    .discografiaGrid{
-
-        gap:25px;
-
-        padding:20px 50px;
-
-    }
-
-
-
-    .discoCard{
-
-        flex:0 0 250px;
-
-    }
-
-
-
-    .discoOverlay{
-
-        opacity:1;
-
-    }
-
-
-
-}
-
-
-
-
-
-/* ==========================================
-   MOVIL
-========================================== */
-
-
-@media(max-width:600px){
-
-
-
-    .sectionTitle{
-
-        font-size:34px;
-
-    }
-
-
-
-    .lightboxContenido{
-
-
-        flex-direction:column;
-
-        gap:30px;
-
-        padding:25px;
-
-
-    }
-
-
-
-    .lightboxContenido > img{
-
-
-        width:300px;
-
-        max-width:85vw;
-
-
-    }
-
-
-
-    .infoLightbox{
-
-
-        text-align:center;
-
-    }
-
-
-
-    .flechaDisco{
-
-
-        width:38px;
-
-        height:38px;
-
-        font-size:25px;
-
-    }
-
+    transition:all .30s ease;
 
 }

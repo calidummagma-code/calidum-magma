@@ -6,12 +6,13 @@ import AdminDiscografia from "./AdminDiscografia";
 import AdminGaleria from "./AdminGaleria";
 import AdminMusica from "./AdminMusica";
 import AdminNoticias from "./AdminNoticias";
+import AdminSales from "./AdminSales";
 
 import "./Admin.css";
 
 export default function Dashboard() {
 
-    const [seccion, setSeccion] = useState("concerts");
+    const [seccion, setSeccion] = useState("sales");
 
     return (
 
@@ -50,6 +51,12 @@ export default function Dashboard() {
                 {seccion === "noticias" && (
 
                     <AdminNoticias />
+
+                )}
+
+                {seccion === "sales" && (
+
+                    <AdminSales />
 
                 )}
 

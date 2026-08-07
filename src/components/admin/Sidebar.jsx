@@ -3,12 +3,9 @@ import { useNavigate } from "react-router-dom";
 
 import "./Admin.css";
 
-
 export default function Sidebar({ setSeccion }) {
 
-
     const navigate = useNavigate();
-
 
     async function cerrarSesion() {
 
@@ -18,45 +15,29 @@ export default function Sidebar({ setSeccion }) {
 
     }
 
-
-
     return (
 
         <aside className="adminSidebar">
 
-
             <h2>
-                CALIDUM MAGMA
+                 CALIDUM MAGMA
             </h2>
 
+            {/* ==========================================
+                SALES
+            ========================================== */}
 
             <button
-                onClick={() => setSeccion("concerts")}
+                onClick={() => setSeccion("sales")}
             >
-                📅 Concerts
+                🏛️ Sales
             </button>
 
+            <hr className="adminSeparadorMenu" />
 
-            <button
-                onClick={() => setSeccion("discografia")}
-            >
-                🎵 Discografia
-            </button>
-
-
-            <button
-                onClick={() => setSeccion("galeria")}
-            >
-                🖼 Galeria
-            </button>
-
-
-            <button
-                onClick={() => setSeccion("musica")}
-            >
-                🎧 Música
-            </button>
-
+            {/* ==========================================
+                PROMOCIÓ
+            ========================================== */}
 
             <button
                 onClick={() => setSeccion("noticias")}
@@ -64,6 +45,41 @@ export default function Sidebar({ setSeccion }) {
                 📰 Notícies
             </button>
 
+            <button
+                onClick={() => setSeccion("galeria")}
+            >
+                🖼️ Galeria
+            </button>
+
+            <button
+                onClick={() => setSeccion("concerts")}
+            >
+                📅 Concerts
+            </button>
+
+            <hr className="adminSeparadorMenu" />
+
+            {/* ==========================================
+                MÚSICA
+            ========================================== */}
+
+            <button
+                onClick={() => setSeccion("musica")}
+            >
+                🎧 Música
+            </button>
+
+            <button
+                onClick={() => setSeccion("discografia")}
+            >
+                🎵 Discografia
+            </button>
+
+            <hr className="adminSeparadorMenu" />
+
+            {/* ==========================================
+                BOTIGA
+            ========================================== */}
 
             <button
                 onClick={() => setSeccion("botiga")}
@@ -71,7 +87,11 @@ export default function Sidebar({ setSeccion }) {
                 👕 Botiga
             </button>
 
+            <hr className="adminSeparadorMenu" />
 
+            {/* ==========================================
+                SORTIR
+            ========================================== */}
 
             <button
                 className="botonLogout"
@@ -80,10 +100,8 @@ export default function Sidebar({ setSeccion }) {
                 🚪 Tancar sessió
             </button>
 
-
         </aside>
 
     );
-
 
 }

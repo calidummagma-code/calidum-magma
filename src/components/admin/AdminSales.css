@@ -1,0 +1,1160 @@
+/* ==========================================
+   ADMIN SALES
+   ESTILO CALIDUM MAGMA
+========================================== */
+
+
+.adminSection{
+
+    width:100%;
+
+    min-height:100vh;
+
+    padding:50px clamp(20px,5vw,70px);
+
+    background:#050505;
+
+    color:#F4F0E8;
+
+}
+
+
+
+/* ==========================================
+   TITULO
+========================================== */
+
+
+.adminSection h1{
+
+    margin-bottom:35px;
+
+    font-size:42px;
+
+    letter-spacing:5px;
+
+    font-weight:900;
+
+}
+
+
+.adminSection h2{
+
+    margin:35px 0 25px;
+
+    font-size:28px;
+
+    letter-spacing:3px;
+
+}
+
+
+
+/* ==========================================
+   TABS FICHAS
+========================================== */
+
+
+.adminTabs{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-bottom:30px;
+
+}
+
+
+
+.adminTabs button{
+
+    background:#111;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    color:white;
+
+    padding:14px 22px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    transition:.35s ease;
+
+}
+
+
+
+.adminTabs button:hover{
+
+    border-color:#8b1e3f;
+
+    transform:translateY(-2px);
+
+}
+
+
+
+.adminTabs .activa{
+
+    background:#8b1e3f;
+
+    border-color:#8b1e3f;
+
+    box-shadow:
+
+    0 0 20px rgba(139,30,63,.45);
+
+}
+
+
+
+/* ==========================================
+   CAJA FORMULARIO
+========================================== */
+
+
+.adminFicha{
+
+    background:#0d0d0d;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:14px;
+
+    padding:30px;
+
+    box-shadow:
+
+    0 10px 35px rgba(0,0,0,.45);
+
+}
+
+
+
+/* ==========================================
+   GRID CAMPOS
+========================================== */
+
+
+.adminGrid2{
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(2,1fr);
+
+    gap:25px;
+
+}
+
+
+
+/* ==========================================
+   CAMPOS
+========================================== */
+
+
+.adminFicha div{
+
+    width:100%;
+
+}
+
+
+
+.adminFicha label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    color:#aaa;
+
+    font-size:14px;
+
+    letter-spacing:1px;
+
+    font-weight:bold;
+
+}
+
+
+
+.adminFicha input,
+.adminFicha textarea{
+
+
+    width:100%;
+
+    padding:14px 16px;
+
+    background:#050505;
+
+    color:white;
+
+    border:1px solid rgba(255,255,255,.18);
+
+    border-radius:8px;
+
+    outline:none;
+
+    font-size:16px;
+
+    transition:.35s ease;
+
+
+}
+
+
+
+.adminFicha textarea{
+
+    resize:vertical;
+
+}
+
+
+
+.adminFicha input:focus,
+.adminFicha textarea:focus{
+
+
+    border-color:#8b1e3f;
+
+    box-shadow:
+
+    0 0 15px rgba(139,30,63,.35);
+
+
+}
+
+
+
+/* ==========================================
+   BOTONES FORMULARIO
+========================================== */
+
+
+.adminBotones{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:25px;
+
+}
+
+
+
+.adminBotones button{
+
+
+    padding:14px 30px;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    transition:.35s ease;
+
+
+}
+
+
+
+.botonGuardar{
+
+
+    background:#8b1e3f;
+
+    color:white;
+
+
+}
+
+
+
+.botonGuardar:hover{
+
+
+    background:#b52b55;
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+    0 0 20px rgba(139,30,63,.5);
+
+
+}
+
+
+
+.botonCancelar{
+
+
+    background:#222;
+
+    color:white;
+
+    border:1px solid rgba(255,255,255,.15) !important;
+
+
+}
+
+
+
+.botonCancelar:hover{
+
+
+    background:#333;
+
+    transform:translateY(-3px);
+
+
+}
+
+
+
+/* ==========================================
+   SEPARADOR MINIMALISTA
+========================================== */
+
+
+.adminSeparador{
+
+
+    width:100%;
+
+    height:1px;
+
+    background:
+
+    rgba(255,255,255,.12);
+
+    margin:45px 0;
+
+
+}
+
+/* ==========================================
+   LISTADO SALES
+========================================== */
+
+
+.adminListado{
+
+    width:100%;
+
+}
+
+
+
+/* ==========================================
+   FILTROS
+========================================== */
+
+
+.adminFiltros{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:30px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+.adminFiltros input,
+.adminFiltros select{
+
+
+    height:45px;
+
+    padding:0 15px;
+
+    background:#111;
+
+    color:white;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:8px;
+
+    font-size:15px;
+
+    outline:none;
+
+    transition:.35s ease;
+
+
+}
+
+
+
+.adminFiltros input{
+
+    flex:1;
+
+    min-width:220px;
+
+}
+
+
+
+.adminFiltros select{
+
+    min-width:180px;
+
+    cursor:pointer;
+
+}
+
+
+
+.adminFiltros input:focus,
+.adminFiltros select:focus{
+
+
+    border-color:#8b1e3f;
+
+    box-shadow:
+
+    0 0 15px rgba(139,30,63,.35);
+
+
+}
+
+
+
+/* ==========================================
+   TABLA
+========================================== */
+
+
+.adminTaula{
+
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:#0d0d0d;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    box-shadow:
+
+    0 10px 35px rgba(0,0,0,.45);
+
+
+}
+
+
+
+.adminTaula thead{
+
+
+    background:#111;
+
+
+}
+
+
+
+.adminTaula th{
+
+
+    padding:18px 15px;
+
+    text-align:left;
+
+    color:#aaa;
+
+    font-size:14px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    border-bottom:
+
+    1px solid rgba(255,255,255,.1);
+
+
+}
+
+
+
+.adminTaula td{
+
+
+    padding:16px 15px;
+
+    border-bottom:
+
+    1px solid rgba(255,255,255,.08);
+
+    color:#eee;
+
+
+}
+
+
+
+.adminTaula tbody tr{
+
+
+    transition:.3s ease;
+
+
+}
+
+
+
+.adminTaula tbody tr:hover{
+
+
+    background:rgba(139,30,63,.12);
+
+
+}
+
+
+
+/* ==========================================
+   BOTONES ACCIONES
+========================================== */
+
+
+.adminAccions{
+
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+
+}
+
+
+
+.adminAccions button{
+
+
+    border:none;
+
+    padding:9px 14px;
+
+    border-radius:7px;
+
+    background:#171717;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-weight:700;
+
+    font-size:13px;
+
+    transition:.35s ease;
+
+    border:
+
+    1px solid rgba(255,255,255,.12);
+
+
+}
+
+
+
+.adminAccions button:hover{
+
+
+    transform:translateY(-2px);
+
+
+}
+
+
+
+/* EDITAR */
+
+
+.adminAccions button:first-child:hover{
+
+
+    background:#8b1e3f;
+
+    border-color:#8b1e3f;
+
+
+}
+
+
+
+/* VER MAS */
+
+
+.adminAccions button:nth-child(2):hover{
+
+
+    background:#444;
+
+}
+
+
+
+/* ELIMINAR */
+
+
+.adminAccions button:last-child:hover{
+
+
+    background:#8b0000;
+
+}
+
+
+
+/* ==========================================
+   TABLA VACIA
+========================================== */
+
+
+.adminTaula td[colspan]{
+
+
+    color:#888;
+
+    font-style:italic;
+
+
+}
+
+/* ==========================================
+   MODAL VEURE MÉS
+========================================== */
+
+
+.adminModalOverlay{
+
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+
+    rgba(0,0,0,.85);
+
+    backdrop-filter:blur(8px);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+    padding:20px;
+
+
+}
+
+
+
+.adminModal{
+
+
+    width:min(900px,95%);
+
+    max-height:90vh;
+
+    overflow-y:auto;
+
+    background:#0b0b0b;
+
+    border:
+
+    1px solid rgba(255,255,255,.15);
+
+    border-radius:16px;
+
+    padding:30px;
+
+    box-shadow:
+
+    0 20px 60px rgba(0,0,0,.7);
+
+
+}
+
+
+
+/* ==========================================
+   CABECERA MODAL
+========================================== */
+
+
+.adminModalHeader{
+
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+.adminModalHeader h2{
+
+
+    font-size:30px;
+
+    letter-spacing:3px;
+
+}
+
+
+
+.adminCerrar{
+
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    border:none;
+
+    background:#222;
+
+    color:white;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    transition:.35s ease;
+
+
+}
+
+
+
+.adminCerrar:hover{
+
+
+    background:#8b1e3f;
+
+    transform:rotate(90deg);
+
+
+}
+
+
+
+/* ==========================================
+   TABS MODAL
+========================================== */
+
+
+.adminModalTabs{
+
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-bottom:30px;
+
+
+}
+
+
+
+.adminModalTabs button{
+
+
+    background:#151515;
+
+    color:white;
+
+    border:
+
+    1px solid rgba(255,255,255,.15);
+
+    padding:10px 16px;
+
+    border-radius:7px;
+
+    cursor:pointer;
+
+    transition:.35s ease;
+
+    font-weight:bold;
+
+
+}
+
+
+
+.adminModalTabs button:hover{
+
+
+    border-color:#8b1e3f;
+
+
+}
+
+
+
+.adminModalTabs .activa{
+
+
+    background:#8b1e3f;
+
+    border-color:#8b1e3f;
+
+
+}
+
+
+
+/* ==========================================
+   INFORMACION MODAL
+========================================== */
+
+
+.adminInfoGrid{
+
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(2,1fr);
+
+    gap:20px;
+
+
+}
+
+
+
+.adminInfoItem{
+
+
+    background:#111;
+
+    border:
+
+    1px solid rgba(255,255,255,.1);
+
+    border-radius:10px;
+
+    padding:20px;
+
+
+}
+
+
+
+.adminInfoItem h4{
+
+
+    color:#8b1e3f;
+
+    margin-bottom:10px;
+
+    letter-spacing:2px;
+
+
+}
+
+
+
+.adminInfoItem p{
+
+
+    color:#eee;
+
+    line-height:1.6;
+
+    word-break:break-word;
+
+
+}
+
+
+
+.adminNotes{
+
+
+    background:#111;
+
+    padding:25px;
+
+    border-radius:10px;
+
+    line-height:1.8;
+
+    color:#ddd;
+
+
+}
+
+
+
+/* ==========================================
+   SCROLL MODAL
+========================================== */
+
+
+.adminModal::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+
+.adminModal::-webkit-scrollbar-thumb{
+
+    background:#5b142c;
+
+    border-radius:20px;
+
+}
+
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+
+@media(max-width:900px){
+
+
+    .adminSection{
+
+
+        padding:35px 20px;
+
+
+    }
+
+
+
+    .adminGrid2{
+
+
+        grid-template-columns:1fr;
+
+
+    }
+
+
+
+    .adminInfoGrid{
+
+
+        grid-template-columns:1fr;
+
+
+    }
+
+
+
+    .adminTaula{
+
+
+        display:block;
+
+        overflow-x:auto;
+
+
+    }
+
+
+}
+
+
+
+/* ==========================================
+   MOVIL
+========================================== */
+
+
+@media(max-width:600px){
+
+
+    .adminSection h1{
+
+
+        font-size:32px;
+
+        letter-spacing:3px;
+
+
+    }
+
+
+
+    .adminTabs button{
+
+
+        width:100%;
+
+
+    }
+
+
+
+    .adminFicha{
+
+
+        padding:20px;
+
+
+    }
+
+
+
+    .adminBotones{
+
+
+        flex-direction:column;
+
+
+    }
+
+
+
+    .adminBotones button{
+
+
+        width:100%;
+
+
+    }
+
+
+
+    .adminFiltros{
+
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+
+    }
+
+
+
+    .adminFiltros input,
+    .adminFiltros select{
+
+
+        width:100%;
+
+
+    }
+
+
+
+    .adminModal{
+
+
+        padding:20px;
+
+        width:100%;
+
+        max-height:95vh;
+
+
+    }
+
+
+
+    .adminModalHeader h2{
+
+
+        font-size:22px;
+
+
+    }
+
+
+
+    .adminModalTabs button{
+
+
+        width:100%;
+
+
+    }
+
+
+
+    .adminAccions{
+
+
+        flex-direction:column;
+
+
+    }
+
+
+
+    .adminAccions button{
+
+
+        width:100%;
+
+
+    }
+
+
+
+}

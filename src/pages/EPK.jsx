@@ -145,7 +145,7 @@ onClick={()=>{
 </button>
 
 
-
+{/*
 
 <button
 className="veureMes botonPDF"
@@ -153,7 +153,7 @@ onClick={descargarEPK}
 >
 📄 DESCARREGAR EPK PDF
 </button>
-
+*/}
 
 
 

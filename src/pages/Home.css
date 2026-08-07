@@ -1150,44 +1150,41 @@ section{
 
 
 
-    .membersGrid{
+   .membersGrid{
 
-        display:flex;
+    display:flex;
 
-        flex-wrap:nowrap;
+    flex-wrap:nowrap;
 
-        overflow-x:auto;
+    justify-content:flex-start;
 
-        scroll-snap-type:x mandatory;
+    overflow-x:auto;
 
-        gap:22px;
+    scroll-snap-type:x mandatory;
 
-        padding-bottom:25px;
+    gap:18px;
 
-    }
+    padding:0 18px 25px;
 
+    box-sizing:border-box;
 
+}
 
-    .membersGrid::-webkit-scrollbar{
+.membersGrid::-webkit-scrollbar{
 
-        display:none;
+    display:none;
 
-    }
+}
 
+.memberCard{
 
+    flex:0 0 78%;
 
-    .memberCard{
+    max-width:78%;
 
-        flex:
+    scroll-snap-align:center;
 
-        0 0 82%;
-
-        max-width:82%;
-
-        scroll-snap-align:center;
-
-    }
-
+}
 
 
     .memberInfo{
